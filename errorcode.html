@@ -769,4 +769,3586 @@ html, body {
 .bar-currency { display: flex; align-items: center; gap: 4px; background: #FDF2D6; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 999px; padding: 0 10px 0 6px; height: 28px; box-sizing: border-box; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); }
 .bar-currency:active { transform: scale(0.93); }
 .bar-currency-icon { width: 18px; height: 18px; object-fit: contain; aspect-ratio: 1/1; flex-shrink: 0; }
-.bar-currency-val { font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: #2e1d00
+.bar-currency-val { font-family: 'Fredoka', sans-serif; font-size: 12px; font-weight: 700; color: #2e1d00; }
+.bar-more { width: 28px; height: 28px; border-radius: 50%; background: #FDF2D6; border: 1.5px solid rgba(255,255,255,0.45); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; color: #2e1d00; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); }
+.bar-more:active { transform: scale(0.88); }
+.bar-center { flex: 0 0 auto; display: flex; align-items: center; gap: 6px; }
+.bar-confirm { display: flex; align-items: center; gap: 5px; opacity: 0; visibility: hidden; cursor: pointer; -webkit-tap-highlight-color: transparent; transition: opacity 0.3s, visibility 0.3s, transform 0.25s cubic-bezier(0.34,1.56,0.64,1); transform: scale(0.85); }
+.bar-confirm.visible { opacity: 0.9; visibility: visible; transform: scale(1); }
+.bar-confirm:active { transform: scale(0.9); }
+.bar-confirm-key { width: 18px; height: 18px; border-radius: 50%; background: rgba(0,0,0,0.18); display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 700; color: white; font-family: 'Fredoka', sans-serif; }
+.bar-confirm-label { font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 600; color: #2e1d00; text-transform: uppercase; letter-spacing: 0.5px; }
+.bar-right { display: flex; align-items: center; gap: 6px; flex: 1; justify-content: flex-end; }
+.bar-profile { display: flex; align-items: center; gap: 6px; background: #FDF2D6; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 999px; padding: 0 10px 0 3px; height: 28px; box-sizing: border-box; position: relative; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
+.bar-profile:active { transform: scale(0.95); }
+.bar-profile-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; background: rgba(0,0,0,0.12); border: 1.5px solid rgba(255,255,255,0.5); }
+.bar-profile-info { display: flex; flex-direction: column; }
+.bar-profile-name { font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: #2e1d00; }
+.bar-profile-xp { width: 60px; height: 3px; background: rgba(0,0,0,0.18); border-radius: 999px; overflow: hidden; margin-top: 2px; }
+.bar-profile-xp-fill { width: 30%; height: 100%; background: #3a9e3a; border-radius: 999px; }
+.bar-profile-badge { position: absolute; top: -3px; left: 18px; background: #e83030; color: white; font-size: 8px; font-weight: 700; font-family: 'Fredoka', sans-serif; border-radius: 999px; padding: 1px 4px; border: 1.5px solid white; }
+.bar-icon-btn { width: 28px; height: 28px; border-radius: 50%; background: #FDF2D6; border: 1.5px solid rgba(255,255,255,0.45); display: flex; align-items: center; justify-content: center; cursor: pointer; font-size: 13px; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); }
+.bar-icon-btn:active { transform: scale(0.88); }
+.bar-squad { display: flex; align-items: center; gap: 4px; background: #FDF2D6; border: 1.5px solid rgba(255,255,255,0.45); border-radius: 999px; padding: 0 10px; height: 28px; box-sizing: border-box; font-family: 'Fredoka', sans-serif; font-size: 11px; font-weight: 700; color: #7E9FC8; transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1); cursor: pointer; }
+.bar-squad:active { transform: scale(0.93); }
+.bar-squad-icon { font-size: 13px; }
+
+
+
+/* ── LAYER 3 CONTENT: Item Shop Panel ── */
+#layer3-content {
+  position: absolute; inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 6%;
+  padding-bottom: 48px;
+  padding-top: 8px;
+  font-family: 'Fredoka', sans-serif;
+}
+
+#is-panel {
+  position: relative;
+  width: clamp(300px, 46vw, 580px);
+  height: calc(100vh - 80px);
+  max-height: 600px;
+  background: #F8E0A4;
+  border-radius: 24px;
+  box-shadow: 0 6px 0 #b8860b, 0 12px 40px rgba(0,0,0,0.28);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transform: perspective(900px) rotateY(8deg);
+  transform-origin: left center;
+}
+
+/* IS Header */
+#is-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px 10px;
+  flex-shrink: 0;
+  background: #FCD35F;
+  border-radius: 24px 24px 0 0;
+  gap: 6px;
+}
+
+/* Tab nav kiri */
+#is-tabs-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.is-tab-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px; height: 32px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.35);
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.15s ease, transform 0.15s ease;
+  position: relative;
+  flex-shrink: 0;
+}
+.is-tab-nav.active {
+  background: #FDF2D6;
+  font-weight: 700;
+}
+.is-tab-nav-label {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(9px, 1vw, 11px);
+  font-weight: 700;
+  color: #7a4500;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.is-tab-nav.active .is-tab-nav-label { color: #c47a00; }
+.is-tab-nav .is-tab-badge {
+  position: absolute;
+  top: -3px; right: -3px;
+  background: #e83030;
+  color: white;
+  font-size: 7px;
+  font-weight: 700;
+  font-family: 'Fredoka', sans-serif;
+  border-radius: 999px;
+  padding: 1px 3px;
+  border: 1.5px solid #FCD35F;
+  line-height: 1;
+}
+.is-tab-nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #FDF2D6;
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+}
+.is-tab-nav-pill.active { background: #FBD45F; }
+.is-tab-nav-pill:active { transform: scale(0.93); }
+
+/* IS action buttons kanan */
+#is-action-btns {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+.is-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(10px, 1vw, 12px);
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  white-space: nowrap;
+}
+.is-action-btn:active { transform: scale(0.92); }
+#btn-redeem {
+  background: #FDF2D6;
+  border: 2px solid #d4a020;
+  color: #7a4500;
+  box-shadow: 0 3px 0 #a87000;
+}
+#btn-surprise {
+  background: #ff6b35;
+  border: 2px solid #cc4a1a;
+  color: white;
+  box-shadow: 0 3px 0 #992e00;
+}
+
+/* IS section label */
+.is-section-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 14px;
+  background: #FBEECE;
+  flex-shrink: 0;
+}
+.is-section-label {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(10px, 1.1vw, 13px);
+  font-weight: 700;
+  color: #a07830;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+}
+.is-section-timer {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(9px, 1vw, 11px);
+  font-weight: 600;
+  color: #a07830;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.is-coins {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: #FCD35F;
+  border-radius: 999px;
+  padding: 3px 10px 3px 6px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(10px, 1.1vw, 13px);
+  font-weight: 700;
+  color: #5a3a00;
+}
+
+/* IS grid */
+#is-grid-wrap {
+  flex: 1;
+  overflow-y: auto;
+  padding: 8px 10px 10px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180,130,0,0.3) transparent;
+}
+#is-grid-wrap::-webkit-scrollbar { width: 3px; }
+#is-grid-wrap::-webkit-scrollbar-thumb { background: rgba(180,130,0,0.3); border-radius: 3px; }
+
+.is-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+.is-grid.featured-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Item card */
+.is-item {
+  background: #FBEECE;
+  border: 2px solid #e8c060;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease;
+  box-shadow: 0 2px 0 #c89820;
+  position: relative;
+}
+.is-item:active { transform: scale(0.96); }
+.is-item.featured { grid-column: span 2; }
+.is-item.wide { grid-column: span 2; }
+
+.is-item-thumb {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+  background: linear-gradient(135deg, #9b59b6, #6c3483);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.is-item.featured .is-item-thumb { aspect-ratio: 2/1.2; }
+.is-item-thumb-img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Rarity badge */
+.is-rarity {
+  position: absolute;
+  bottom: 5px; left: 5px;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  border-radius: 999px;
+  padding: 2px 7px 2px 4px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+.is-rarity.epic    { background: #8b5cf6; color: white; }
+.is-rarity.rare    { background: #3b82f6; color: white; }
+.is-rarity.uncommon{ background: #22c55e; color: white; }
+.is-rarity.legendary{ background: #f59e0b; color: white; }
+.is-rarity.standard{ background: #94a3b8; color: white; }
+.is-rarity.ipcol   { background: #ef4444; color: white; }
+
+/* Owned checkmark */
+.is-owned {
+  position: absolute;
+  bottom: 5px; right: 5px;
+  width: 18px; height: 18px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  color: #22c55e;
+}
+
+/* CC badge */
+.is-cc {
+  position: absolute;
+  bottom: 5px; right: 5px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  background: rgba(0,0,0,0.45);
+  border-radius: 999px;
+  padding: 2px 6px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 8px;
+  font-weight: 600;
+  color: white;
+}
+
+.is-item-info {
+  padding: 5px 7px 6px;
+}
+.is-item-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(9px, 1vw, 11px);
+  font-weight: 700;
+  color: #3a2800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.is-item-type {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 8px;
+  font-weight: 500;
+  color: #a07830;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.is-item-check {
+  color: #22c55e;
+  font-size: 11px;
+  float: right;
+  margin-top: -14px;
+}
+
+/* Gestures grid - 5 cols */
+.is-grid.gestures-grid {
+  grid-template-columns: repeat(5, 1fr);
+}
+.is-grid.gestures-grid .is-item-thumb {
+  aspect-ratio: 1/1;
+  background: linear-gradient(135deg, #ff7043, #e64a19);
+}
+
+
+#bannerads-overlay {
+  position: fixed; inset: 0;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, background 0.3s ease;
+}
+#bannerads-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+  background: rgba(0,0,0,0.55);
+}
+#bannerads-modal {
+  position: relative;
+  width: clamp(300px, 62vw, 760px);
+  border-radius: 24px;
+  overflow: visible;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  transform: translateY(60vh) scaleX(0.6) scaleY(0.2);
+  opacity: 0;
+  transition: none;
+}
+#bannerads-overlay.open #bannerads-modal {
+  animation: bannerads-pop 0.6s cubic-bezier(0.34,1.15,0.64,1) forwards;
+}
+@keyframes bannerads-pop {
+  0%   { transform: translateY(60vh) scaleX(0.6) scaleY(0.2); opacity: 0; }
+  50%  { transform: translateY(0) scaleX(1.04) scaleY(0.97); opacity: 1; }
+  68%  { transform: translateY(0) scaleX(0.98) scaleY(1.03); }
+  82%  { transform: translateY(0) scaleX(1.01) scaleY(0.99); }
+  100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+#bannerads-img {
+  width: 100%;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 12px 48px rgba(0,0,0,0.45);
+}
+#bannerads-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+  justify-content: center;
+}
+.bannerads-btn {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(12px, 1.6vw, 16px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 10px 32px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.bannerads-btn:active { transform: scale(0.94) translateY(2px); }
+#bannerads-close {
+  background: #FDF2D6;
+  color: #7a4500;
+  box-shadow: 0 4px 0 #b8860b;
+}
+#bannerads-visit {
+  background: #f5c842;
+  color: #5a3200;
+  box-shadow: 0 4px 0 #c48a00;
+}
+#bannerads-close.hovered { transform: scale(1.06); }
+#bannerads-visit.hovered { transform: scale(1.06); }
+
+/* ── LAYER 5: QUICK MATCH ── */
+#layer5-content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 6% 52px;
+  font-family: 'Fredoka', sans-serif;
+  pointer-events: none;
+  overflow: visible;
+  z-index: 6;
+}
+#slide-5.active #layer5-content { pointer-events: all; }
+
+/* ── QM Left Panel ── */
+#qm-panel {
+  width: clamp(160px, 20vw, 240px);
+  background: #FCD35F;
+  border-radius: 20px;
+  box-shadow: 0 5px 0 #b8860b, 0 10px 32px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0 16px 0;
+  overflow: visible;
+  transform: perspective(600px) rotateY(12deg);
+  transform-origin: left center;
+  position: relative;
+  transition: width 0.5s cubic-bezier(0.34,1.4,0.64,1),
+              padding 0.4s cubic-bezier(0.34,1.4,0.64,1),
+              box-shadow 0.4s ease;
+}
+
+/* Jelly pop saat state berubah */
+@keyframes qm-jelly {
+  0%   { transform: perspective(600px) rotateY(12deg) scale(1); }
+  25%  { transform: perspective(600px) rotateY(12deg) scaleX(1.06) scaleY(0.96); }
+  50%  { transform: perspective(600px) rotateY(12deg) scaleX(0.97) scaleY(1.04); }
+  75%  { transform: perspective(600px) rotateY(12deg) scaleX(1.02) scaleY(0.99); }
+  100% { transform: perspective(600px) rotateY(12deg) scale(1); }
+}
+#qm-panel.jelly {
+  animation: qm-jelly 0.5s cubic-bezier(0.34,1.4,0.64,1) forwards;
+}
+
+/* Avatar area */
+#qm-avatar-wrap {
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background: #FFF8D6;
+  border: 3px solid #e8c060;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  overflow: hidden;
+  z-index: 2;
+}
+#qm-avatar-wrap img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+#qm-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(9px, 1vw, 12px);
+  font-weight: 700;
+  color: #a07830;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+
+/* Buttons */
+.qm-btn {
+  width: calc(100% - 24px);
+  margin: 0 12px 8px;
+  padding: 9px 0;
+  border-radius: 999px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(10px, 1.1vw, 13px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  box-sizing: border-box;
+}
+.qm-btn:active { transform: scale(0.94) translateY(2px); }
+#qm-party-btn {
+  background: #FFF8D6;
+  border: 2px solid #e8c060;
+  color: #5a3800;
+  box-shadow: 0 3px 0 #c89820;
+}
+#qm-party-btn.disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+/* QM Start button — fixed size, inner content animated */
+@keyframes qm-fade-in        { from { opacity:0; transform:translateY(-10px); } to { opacity:1; transform:translateY(0); } }
+@keyframes qm-fade-out-down  { from { opacity:1; transform:translateY(0); }     to { opacity:0; transform:translateY(12px); } }
+@keyframes qm-fade-in-top    { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:translateY(0); } }
+@keyframes qm-slide-out-left { from { opacity:1; transform:translateX(0); }     to { opacity:0; transform:translateX(-20px); } }
+@keyframes qm-slide-in-right { from { opacity:0; transform:translateX(20px); }  to { opacity:1; transform:translateX(0); } }
+
+#qm-start-btn {
+  background: #4caf50;
+  border: 2.5px solid #2e7d32;
+  color: white;
+  box-shadow: 0 4px 0 #1b5e20;
+  overflow: hidden;
+  position: relative;
+  /* Ukuran dipaksa tetap */
+  min-height: 36px;
+}
+#qm-start-btn.waiting { background: #4caf50; border-color: #2e7d32; }
+#qm-start-btn.loading { background: #4caf50; border-color: #2e7d32; pointer-events: none; }
+#qm-start-btn.counting { background: #4caf50; border-color: #2e7d32; pointer-events: none; }
+#qm-start-btn.found {
+  background: #FFF8D6;
+  border-color: #e8c060;
+  color: #5a3800;
+  box-shadow: 0 3px 0 #c89820;
+  pointer-events: none;
+}
+
+/* Inner wrapper animasi */
+.qm-btn-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 6px; width: 100%;
+}
+.qm-btn-inner.anim-fade-in       { animation: qm-fade-in 0.3s ease forwards; }
+.qm-btn-inner.anim-fade-out-down { animation: qm-fade-out-down 0.25s ease forwards; }
+.qm-btn-inner.anim-fade-in-top   { animation: qm-fade-in-top 0.3s ease forwards; }
+.qm-btn-inner.anim-slide-out-left{ animation: qm-slide-out-left 0.25s ease forwards; }
+.qm-btn-inner.anim-slide-in-right{ animation: qm-slide-in-right 0.3s ease forwards; }
+
+#qm-party-btn {
+  background: #FFF8D6;
+  border: 2px solid #e8c060;
+  color: #5a3800;
+  box-shadow: 0 3px 0 #c89820;
+}
+#qm-party-btn.disabled {
+  opacity: 0.55;
+  pointer-events: none;
+}
+#qm-start-btn.found {
+  background: #FFF8D6 !important;
+  border-color: #e8c060 !important;
+  color: #5a3800 !important;
+  box-shadow: 0 3px 0 #c89820 !important;
+  pointer-events: none;
+}
+
+/* Counter number style */
+.qm-counter {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+}
+
+#qm-cancel-btn {
+  background: #FFF8D6;
+  border: 2px solid #e8c060;
+  color: #e53935;
+  box-shadow: 0 3px 0 #c89820;
+  display: none;
+}
+#qm-cancel-btn.show { display: flex; }
+
+/* Spinner */
+@keyframes qm-spin { to { transform: rotate(360deg); } }
+.qm-spinner {
+  width: 18px; height: 18px;
+  border: 2.5px solid rgba(255,255,255,0.4);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: qm-spin 0.8s linear infinite;
+  flex-shrink: 0;
+}
+/* Counter number */
+.qm-counter {
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+  font-family: 'Fredoka', sans-serif;
+  line-height: 1;
+}
+
+/* ── QM Right Panel — Weekly Challenge ── */
+#qm-challenge {
+  width: clamp(160px, 20vw, 240px);
+  background: #FFF8D6;
+  border-radius: 16px;
+  box-shadow: 0 5px 0 #b8860b, 0 10px 28px rgba(0,0,0,0.22);
+  overflow: hidden;
+  transform: perspective(600px) rotateY(-12deg);
+  transform-origin: right center;
+}
+#qm-challenge-header {
+  background: linear-gradient(135deg, #FCD35F, #f0a800);
+  padding: 10px 12px 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+#qm-challenge-trophy { font-size: 22px; }
+#qm-challenge-title-wrap { flex: 1; }
+#qm-challenge-title {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(11px, 1.3vw, 15px);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+  line-height: 1;
+}
+#qm-challenge-refresh {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(7px, 0.8vw, 9px);
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  display: flex; align-items: center; gap: 3px;
+  margin-top: 2px;
+}
+
+/* Quest rows */
+#qm-quests { padding: 6px 8px 8px; }
+.qm-quest {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 6px;
+}
+.qm-quest-icon {
+  width: 30px; height: 30px;
+  border-radius: 8px;
+  background: #4caf50;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+.qm-quest-icon .xp-badge {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(0,0,0,0.4);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 6px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding: 1px 0;
+}
+.qm-quest-right { flex: 1; min-width: 0; }
+.qm-quest-name {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(8px, 0.9vw, 10px);
+  font-weight: 600;
+  color: #3a2800;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px;
+}
+.qm-quest-check { color: #4caf50; font-size: 10px; flex-shrink: 0; }
+.qm-quest-progress-wrap {
+  position: relative;
+  height: 5px;
+  background: #e8d080;
+  border-radius: 999px;
+  margin-top: 3px;
+  overflow: hidden;
+}
+.qm-quest-bar {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(to right, #FCD35F, #f0a800);
+  transition: width 0.3s ease;
+}
+
+/* ── Bottom Mode Selector ── */
+#qm-modes {
+  position: absolute;
+  bottom: 52px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+.qm-mode {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #2a1a00;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  position: relative;
+  min-width: 80px;
+}
+.qm-mode:active { transform: scale(0.95); }
+.qm-mode.active { outline: 2.5px solid #FCD35F; }
+.qm-mode-img {
+  width: 52px; height: 36px;
+  object-fit: cover;
+  flex-shrink: 0;
+  background: #3a2800;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+}
+.qm-mode-img img { width: 100%; height: 100%; object-fit: cover; }
+.qm-mode-label {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(7px, 0.8vw, 9px);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  padding: 0 8px;
+  letter-spacing: 0.3px;
+  line-height: 1.2;
+  text-align: center;
+}
+.qm-mode-tick {
+  position: absolute;
+  top: -4px; right: -4px;
+  width: 14px; height: 14px;
+  background: #FCD35F;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 8px;
+  color: #5a3200;
+  font-weight: 700;
+  display: none;
+}
+.qm-mode.active .qm-mode-tick { display: flex; }
+
+/* ── SPLASH LOADING ── */
+#splash-screen {
+  position: fixed; inset: 0;
+  z-index: 9000;
+  pointer-events: none;
+  display: none;
+}
+#splash-screen.active { display: block; pointer-events: all; }
+#splash-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+@keyframes splash-mask-in {
+  0%   { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+@keyframes splash-mask-out {
+  0%   { clip-path: inset(0 0% 0 0); }
+  100% { clip-path: inset(0 0 0 100%); }
+}
+#splash-screen.mask-in  #splash-img { animation: splash-mask-in  0.6s cubic-bezier(0.4,0,0.2,1) forwards; }
+#splash-screen.mask-out #splash-img { animation: splash-mask-out 0.6s cubic-bezier(0.4,0,0.2,1) forwards; }
+
+/* ── CHARACTER SELECT ── */
+#charselect-screen {
+  position: fixed; inset: 0;
+  z-index: 400;
+  display: none;
+  font-family: 'Fredoka', sans-serif;
+}
+#charselect-screen.active { display: block; }
+#charselect-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+#cs-timer-wrap {
+  position: absolute;
+  top: 2px; left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#cs-timer-bg {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+#cs-timer-num {
+  position: absolute;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(20px, 2.8vw, 30px);
+  font-weight: 700;
+  color: #3a2800;
+  line-height: 1;
+  right: 24px;
+  top: 6px;
+}
+#cs-stage {
+  position: absolute;
+  bottom: 160px; left: 0; right: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: clamp(6px, 1.5vw, 20px);
+  padding: 0 20px;
+  z-index: 5;
+}
+.cs-char {
+  display: flex; flex-direction: column; align-items: center;
+  position: relative;
+}
+.cs-char-badge {
+  position: absolute; top: -10px;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: #FCD35F;
+  border: 2px solid #c8a000;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+.cs-char-you {
+  position: absolute; top: -10px;
+  background: #e53935; color: white;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 9px; font-weight: 700;
+  padding: 2px 7px; border-radius: 999px;
+  text-transform: uppercase; z-index: 3;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+.cs-char-name {
+  position: absolute; top: 10px;
+  background: rgba(60,30,0,0.72); color: #ffe8a0;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 9px; font-weight: 600;
+  padding: 2px 8px; border-radius: 999px;
+  white-space: nowrap; z-index: 3;
+}
+.cs-char-avatar {
+  width: clamp(55px, 7.5vw, 95px);
+  height: clamp(55px, 7.5vw, 95px);
+  font-size: clamp(36px, 5vw, 68px);
+  display: flex; align-items: flex-end; justify-content: center;
+  line-height: 1;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.3));
+}
+.cs-char.you .cs-char-avatar { transform: scale(1.18); }
+#cs-picker {
+  position: absolute;
+  bottom: 80px; left: 50%;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: 5px;
+  z-index: 10;
+}
+.cs-pick-item {
+  width: clamp(36px, 4.8vw, 54px);
+  height: clamp(36px, 4.8vw, 54px);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  border: 2.5px solid rgba(255,255,255,0.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(16px, 2.2vw, 26px);
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.cs-pick-item.selected {
+  border-color: #FCD35F; border-width: 3px;
+  transform: scale(1.12);
+  box-shadow: 0 0 0 2px #FCD35F55, 0 2px 8px rgba(0,0,0,0.3);
+}
+.cs-pick-item:active { transform: scale(0.93); }
+#cs-bottom {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  height: 28px;
+  background: rgba(0,0,0,0.55);
+  display: flex; align-items: flex-end; justify-content: space-between;
+  padding: 0 16px; z-index: 10;
+  overflow: visible;
+}
+.cs-bottom-hint {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(8px, 0.9vw, 11px);
+  font-weight: 600; color: rgba(255,255,255,0.7);
+  text-transform: uppercase; letter-spacing: 0.5px;
+  display: flex; align-items: center; gap: 4px;
+  padding-bottom: 10px;
+}
+#cs-ready-btn {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex; align-items: flex-end;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1), filter 0.15s ease;
+  white-space: nowrap;
+  align-self: flex-end;
+  margin-bottom: -3px;
+}
+#cs-ready-btn img {
+  height: 44px;
+  width: auto;
+  display: block;
+}
+#cs-ready-btn.starting img {
+  filter: hue-rotate(100deg) saturate(1.4);
+}
+#cs-ready-btn:active { transform: scale(0.95); }
+
+@keyframes settings-slide-up {
+  0%   { transform: translateX(-50%) translateY(calc(50vh + 19px)) scaleX(0.7) scaleY(0.3); opacity: 0; }
+  50%  { transform: translateX(-50%) translateY(-50%) scaleX(1.04) scaleY(0.97); opacity: 1; }
+  70%  { transform: translateX(-50%) translateY(-50%) scaleX(0.98) scaleY(1.02); }
+  85%  { transform: translateX(-50%) translateY(-50%) scaleX(1.01) scaleY(0.99); }
+  100% { transform: translateX(-50%) translateY(-50%) scale(1); opacity: 1; }
+}
+@keyframes settings-slide-down {
+  0%   { transform: translateX(-50%) translateY(-50%) scale(1); opacity: 1; }
+  40%  { transform: translateX(-50%) translateY(-50%) scaleX(1.03) scaleY(0.95); opacity: 1; }
+  100% { transform: translateX(-50%) translateY(calc(50vh + 19px)) scaleX(0.8) scaleY(0.4); opacity: 0; }
+}
+
+#settings-overlay {
+  position: fixed; inset: 0;
+  z-index: 8;
+  display: none;
+  background: rgba(0,0,0,0);
+  pointer-events: none;
+  transition: background 0.35s ease;
+}
+#settings-overlay.open {
+  display: block;
+  background: rgba(0,0,0,0.35);
+  pointer-events: all;
+}
+#settings-modal {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translateX(-50%) translateY(calc(50vh + 19px)) scaleX(0.7) scaleY(0.3);
+  width: clamp(240px, 30vw, 380px);
+  background: #FBE98A;
+  border-radius: 14px;
+  box-shadow: 0 5px 0 #c8a200, 0 10px 32px rgba(0,0,0,0.35);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  font-family: 'Fredoka', sans-serif;
+}
+#settings-overlay.open #settings-modal {
+  animation: settings-slide-up 0.55s cubic-bezier(0.34,1.1,0.64,1) forwards;
+}
+#settings-overlay.closing #settings-modal {
+  animation: settings-slide-down 0.35s cubic-bezier(0.4,0,0.8,0) forwards;
+}
+
+/* Tab nav */
+#settings-tabs {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 7px 8px 6px;
+  border-bottom: 1.5px solid rgba(200,160,0,0.2);
+  flex-shrink: 0;
+}
+.settings-tab {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  border: 1.5px solid transparent;
+  background: transparent;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(8px, 0.85vw, 10px);
+  font-weight: 700;
+  color: #a07830;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.settings-tab.active {
+  background: #FCD35F;
+  border-color: #c8980a;
+  color: #5a3200;
+  box-shadow: 0 2px 0 #a07000;
+}
+.settings-tab-icon { font-size: 10px; }
+
+/* Content area — fixed height = General tab (5 rows) */
+#settings-content {
+  flex: none;
+  overflow-y: auto;
+  padding: 6px 8px;
+  height: 210px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(180,130,0,0.3) transparent;
+}
+#settings-content::-webkit-scrollbar { width: 2px; }
+#settings-content::-webkit-scrollbar-thumb { background: rgba(180,130,0,0.3); border-radius: 2px; }
+
+/* Setting row */
+.settings-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #FFF8D6;
+  border-radius: 8px;
+  padding: 7px 9px;
+  margin-bottom: 4px;
+  min-height: 34px;
+  gap: 6px;
+}
+.settings-row-left {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  flex: 1;
+  min-width: 0;
+}
+.settings-row-label {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(9px, 0.95vw, 11px);
+  font-weight: 600;
+  color: #3a2800;
+}
+.settings-row-sub {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(7px, 0.75vw, 9px);
+  color: #a07830;
+  font-weight: 400;
+}
+
+/* Slider */
+.settings-slider-wrap {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.settings-slider-val {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 9px;
+  font-weight: 600;
+  color: #7a5820;
+  min-width: 20px;
+  text-align: right;
+}
+.settings-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 72px;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, #FCD35F 0%, #FCD35F 100%, #e8d080 100%);
+  outline: none;
+  cursor: pointer;
+}
+.settings-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: #FFF8D6;
+  border: 1.5px solid #c8980a;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+.settings-slider-lock {
+  width: 16px; height: 16px;
+  border-radius: 4px;
+  background: rgba(200,160,0,0.15);
+  border: 1px solid rgba(200,160,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 7px;
+  color: #a07830;
+  cursor: pointer;
+}
+
+/* Dropdown */
+.settings-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #FFF8D6;
+  border: 1.5px solid #e8c060;
+  border-radius: 999px;
+  padding: 4px 8px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(8px, 0.9vw, 10px);
+  font-weight: 600;
+  color: #5a3800;
+  cursor: pointer;
+  min-width: 76px;
+  justify-content: space-between;
+  flex-shrink: 0;
+}
+.settings-dropdown-arrow { color: #a07830; font-size: 8px; }
+
+/* Stepper < value > */
+.settings-stepper {
+  display: flex;
+  align-items: center;
+  background: #FFF8D6;
+  border: 1.5px solid #e8c060;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.settings-stepper-btn {
+  width: 20px; height: 22px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px;
+  color: #a07830;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.1s;
+}
+.settings-stepper-btn:active { background: rgba(200,160,0,0.2); }
+.settings-stepper-val {
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(8px, 0.9vw, 10px);
+  font-weight: 700;
+  color: #5a3800;
+  min-width: 44px;
+  text-align: center;
+  padding: 0 2px;
+}
+
+/* Toggle switch */
+.settings-toggle {
+  position: relative;
+  width: 34px; height: 18px;
+  border-radius: 999px;
+  background: #d4c080;
+  border: 1.5px solid #b8a060;
+  cursor: pointer;
+  transition: background 0.2s;
+  flex-shrink: 0;
+}
+.settings-toggle.on { background: #4caf50; border-color: #2e7d32; }
+.settings-toggle-knob {
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  transition: left 0.2s;
+}
+.settings-toggle.on .settings-toggle-knob { left: 17px; }
+.settings-toggle-label {
+  position: absolute;
+  top: 50%; right: 4px;
+  transform: translateY(-50%);
+  font-family: 'Fredoka', sans-serif;
+  font-size: 6px;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  pointer-events: none;
+}
+.settings-toggle.on .settings-toggle-label { right: auto; left: 4px; }
+
+/* Action button in row */
+.settings-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 9px;
+  border-radius: 999px;
+  background: #FFF8D6;
+  border: 1.5px solid #e8c060;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(8px, 0.85vw, 10px);
+  font-weight: 700;
+  color: #5a3800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.settings-action-btn:active { transform: scale(0.94); }
+
+/* Customer ID row */
+.settings-row.customer-id {
+  background: #FCD35F;
+  border: 1.5px solid #c8980a;
+}
+.settings-row.customer-id .settings-row-label {
+  font-size: clamp(8px, 0.85vw, 10px);
+  color: #7a5000;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Footer buttons */
+#settings-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 7px 8px;
+  border-top: 1.5px solid rgba(200,160,0,0.2);
+  flex-shrink: 0;
+  gap: 5px;
+}
+.settings-footer-btn {
+  flex: 1;
+  padding: 6px 0;
+  border-radius: 999px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(9px, 0.95vw, 11px);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.15s cubic-bezier(0.34,1.56,0.64,1);
+}
+.settings-footer-btn:active { transform: scale(0.94); }
+#btn-settings-cancel {
+  background: #FFF8D6;
+  border: 1.5px solid #e8c060;
+  color: #4a8fcc;
+  box-shadow: 0 2px 0 #b8a040;
+  flex: 0.8;
+}
+#btn-settings-reset {
+  background: #FFF8D6;
+  border: 1.5px solid #e8c060;
+  color: #5a3800;
+  box-shadow: 0 2px 0 #b8a040;
+}
+#btn-settings-apply {
+  background: #FCD35F;
+  border: 1.5px solid #c8980a;
+  color: #5a3200;
+  box-shadow: 0 2px 0 #9a7000;
+}
+
+
+#layer4-content {
+  position: absolute; inset: 0;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Fredoka', sans-serif;
+  pointer-events: none;
+}
+.layer-slide.active #layer4-content { pointer-events: all; }
+
+/* SE topbar sebagai tabel blur dengan animasi slide dari atas */
+@keyframes se-topbar-in {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(0); }
+}
+@keyframes se-topbar-out {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(-100%); }
+}
+
+#se-topbar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  transform: translateY(-100%);
+  width: 100%;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+  border-radius: 0;
+  box-shadow: none;
+  pointer-events: none;
+  overflow: hidden;
+}
+#se-topbar.visible {
+  animation: se-topbar-in 0.35s cubic-bezier(0.4,0,0.2,1) forwards;
+  pointer-events: all;
+}
+#se-topbar.hidden {
+  animation: se-topbar-out 0.25s cubic-bezier(0.4,0,0.2,1) forwards;
+  pointer-events: none;
+}
+
+/* Tab switching tanpa fade */
+#is-grid-wrap > div {
+  transition: none !important;
+}
+#se-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(16px, 2.2vw, 22px);
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+#se-topright {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.se-icon-btn {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  background: rgba(0,0,0,0.2);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+}
+.se-icon-btn:active { transform: scale(0.88); }
+#se-coins {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.2);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+  padding: 5px 14px 5px 8px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(12px, 1.4vw, 15px);
+  font-weight: 700;
+  color: white;
+}
+#se-sure-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.2);
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 999px;
+  padding: 6px 16px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(11px, 1.2vw, 14px);
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  white-space: nowrap;
+}
+#se-sure-btn:active { transform: scale(0.94); }
+#se-machine {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+#se-machine-img {
+  width: auto;
+  height: 78vh;
+  max-height: 560px;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.25));
+}
+#se-bottom {
+  position: absolute;
+  bottom: 48px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  z-index: 10;
+}
+#se-coin-slot {
+  width: 60px; height: 60px;
+  background: linear-gradient(145deg, #f0c040, #c88800);
+  border-radius: 50%;
+  border: 3px solid rgba(255,255,255,0.5);
+  box-shadow: 0 4px 0 #8a5c00, 0 6px 18px rgba(0,0,0,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  flex-shrink: 0;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+}
+#se-coin-slot:active { transform: scale(0.9) translateY(3px); }
+.se-roll-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #FCD35F;
+  border: 2.5px solid #c8980a;
+  border-radius: 14px;
+  padding: 11px 24px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: clamp(13px, 1.5vw, 16px);
+  font-weight: 700;
+  color: #4a2800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #9a6800, 0 6px 16px rgba(0,0,0,0.2);
+  transition: transform 0.18s cubic-bezier(0.34,1.56,0.64,1);
+  white-space: nowrap;
+}
+.se-roll-btn:active { transform: scale(0.94) translateY(3px); box-shadow: 0 1px 0 #9a6800; }
+.se-icon-btn.hovered, #se-sure-btn.hovered, .se-roll-btn.hovered, #se-coin-slot.hovered { transform: scale(1.06); }
+
+</style>
+</head>
+<body>
+
+<!-- Virtual Pointer -->
+<div id="virtual-pointer"></div>
+
+<!-- Tap to Start -->
+<div id="tap-screen">
+  <div id="tap-text">tap to start</div>
+</div>
+
+<!-- ── INTRO LOADING SCREEN (di sini supaya render pertama) ── -->
+<div id="intro-screen">
+  <div class="intro-corner" id="intro-top-left">
+    <div class="intro-version">Version 1.15.2.1-207009</div>
+    <div class="intro-server">Global Server - Asia</div>
+  </div>
+  <div class="intro-corner" id="intro-top-right">⊙</div>
+
+  <!-- Bottom left: loading spinner + teks -->
+  <div class="intro-corner" id="intro-bottom-left">
+    <div id="intro-spinner"></div>
+    <div id="intro-loading-text">Loading...</div>
+  </div>
+
+  <div class="intro-corner" id="intro-bottom-right">© 2026 Source Technology</div>
+</div>
+
+<!-- Main Menu Screen (langsung aktif, Quick Match selected) -->
+<div id="screen-menu">
+  <img id="lobby-bg" src="assets/background/lobbybg.png" alt="Lobby">
+
+  <!-- Layer carousel - setiap layer punya konten sendiri -->
+  <div id="lobby-layers">
+
+    <!-- LAYER 1: Custom Game (kanan, belum tampil) -->
+    <div class="layer-slide right" id="slide-1">
+      <img class="lobby-layer" src="assets/imglobby/1.png" alt="layer1">
+      <div class="layer-content" id="layer1-content">
+        <div id="layer1-panel">
+
+          <!-- Header -->
+          <div id="cg-header">
+            <div id="cg-title">Custom Game</div>
+            <div id="cg-header-btns">
+              <div class="cg-header-btn" id="btn-create">🏠+ Create</div>
+              <div class="cg-header-btn" id="btn-quickjoin">▶ Quick Join</div>
+            </div>
+          </div>
+
+          <!-- Room list -->
+          <div id="cg-list">
+            <div class="cg-room"><div class="cg-room-thumb">🌀</div><div class="cg-room-name">Partida de MintyUni</div><div class="cg-room-mode">Last Stand</div><div class="cg-room-status">8/8 In Game</div><div class="cg-room-ping"><div class="ping-bar" style="height:8px"></div><div class="ping-bar" style="height:13px"></div><div class="ping-bar" style="height:18px"></div></div></div>
+            <div class="cg-room"><div class="cg-room-thumb">🏔️</div><div class="cg-room-name">&lt;3 the cabin</div><div class="cg-room-mode">The Lab</div><div class="cg-room-status">8/8 In Game</div><div class="cg-room-ping"><div class="ping-bar" style="height:8px"></div><div class="ping-bar" style="height:13px"></div><div class="ping-bar" style="height:18px"></div></div></div>
+            <div class="cg-room"><div class="cg-room-thumb">🐱</div><div class="cg-room-name">cats only</div><div class="cg-room-mode">The Lab</div><div class="cg-room-status">7/8 In Game</div><div class="cg-room-ping"><div class="ping-bar" style="height:8px"></div><div class="ping-bar" style="height:13px"></div><div class="ping-bar" style="height:18px"></div></div></div>
+            <div class="cg-room"><div class="cg-room-thumb">⚔️</div><div class="cg-room-name">No fighting.</div><div class="cg-room-mode">The Lab</div><div class="cg-room-status">8/8 In Game</div><div class="cg-room-ping"><div class="ping-bar" style="height:8px"></div><div class="ping-bar" style="height:13px"></div><div class="ping-bar" style="height:18px"></div></div></div>
+            <div class="cg-room"><div class="cg-room-thumb">🐾</div><div class="cg-room-name">CAT ONLY</div><div class="cg-room-mode">The Lab</div><div class="cg-room-status">4/4 In Game</div><div class="cg-room-ping"><div class="ping-bar" style="height:8px"></div><div class="ping-bar" style="height:13px"></div><div class="ping-bar" style="height:18px"></div></div></div>
+            <div class="cg-room"><div class="cg-room-thumb">🏔️</div><div class="cg-room-name">Matterhorn's Game</div><div class="cg-room-mode">Last Stand</div><div class="cg-room-status">8/8 In Game</div><div class="cg-room-ping"><div class="ping-bar" style="height:8px"></div><div class="ping-bar" style="height:13px"></div><div class="ping-bar" style="height:18px"></div></div></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- LAYER 2: Main Menu (aktif) -->
+    <div class="layer-slide active" id="slide-2">
+      <img class="lobby-layer" src="assets/imglobby/2.png" alt="layer2">
+      <div class="layer-content" id="layer2-content">
+
+        <!-- LEFT: Menu -->
+        <div class="lobby-left" id="lobby-menu">
+          <div class="lobby-menu-item main" data-menu="quickmatch">
+            <div class="menu-pill"><div class="menu-arrow"></div><span class="menu-label">Quick Match</span></div>
+            <span class="menu-label">Quick Match</span>
+          </div>
+          <div class="lobby-menu-item main" data-menu="customgame">
+            <div class="menu-pill"><div class="menu-arrow"></div><span class="menu-label">Custom Game</span></div>
+            <span class="menu-label">Custom Game</span>
+          </div>
+          <div class="menu-separator"></div>
+          <div class="lobby-menu-item sub" data-menu="locker">
+            <div class="menu-pill"><div class="menu-arrow"></div><span class="menu-label">Locker</span></div>
+            <span class="menu-label">Locker</span>
+          </div>
+          <div class="lobby-menu-item sub" data-menu="settings">
+            <div class="menu-pill"><div class="menu-arrow"></div><span class="menu-label">Settings</span></div>
+            <span class="menu-label">Settings</span>
+          </div>
+          <div class="lobby-menu-item sub" data-menu="tutorial">
+            <div class="menu-pill"><div class="menu-arrow"></div><span class="menu-label">Tutorial</span></div>
+            <span class="menu-label">Tutorial</span>
+          </div>
+          <div class="lobby-menu-item sub" data-menu="exit">
+            <div class="menu-pill"><div class="menu-arrow"></div><span class="menu-label">Exit Game</span></div>
+            <span class="menu-label">Exit Game</span>
+          </div>
+        </div>
+
+        <!-- RIGHT: Card -->
+        <div class="lobby-right">
+          <div class="lobby-card">
+            <div class="lobby-card-strip" id="ads-strip">
+              <img src="assets/imgads/ads1.png" alt="ads1">
+              <img src="assets/imgads/ads2.png" alt="ads2">
+              <img src="assets/imgads/ads3.png" alt="ads3">
+            </div>
+            <div class="lobby-card-dots" id="ads-dots">
+              <div class="lobby-card-dot active"></div>
+              <div class="lobby-card-dot"></div>
+              <div class="lobby-card-dot"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LAYER 3: Item Shop -->
+    <div class="layer-slide right" id="slide-3">
+      <img class="lobby-layer" src="assets/imglobby/3.png" alt="layer3">
+      <div class="layer-content" id="layer3-content">
+        <div id="is-panel">
+
+          <!-- Header -->
+          <div id="is-header">
+            <div id="is-tabs-nav">
+              <!-- Featured pill -->
+              <div class="is-tab-nav-pill active" data-is-tab="featured">
+                <span style="font-size:13px">🛒</span>
+                <span class="is-tab-nav-label">Featured</span>
+              </div>
+              <!-- Outfits icon -->
+              <div class="is-tab-nav" data-is-tab="outfits">
+                <span>👕</span>
+                <div class="is-tab-badge">N</div>
+              </div>
+              <!-- Karts icon -->
+              <div class="is-tab-nav" data-is-tab="karts">
+                <span>🏎️</span>
+              </div>
+              <!-- Gestures icon -->
+              <div class="is-tab-nav" data-is-tab="gestures">
+                <span>🐾</span>
+              </div>
+            </div>
+            <div id="is-action-btns">
+              <div class="is-action-btn" id="btn-redeem">🎫 Redeem</div>
+              <div class="is-action-btn" id="btn-surprise">🥚 Surprise Eggs</div>
+            </div>
+          </div>
+
+          <!-- Content area -->
+          <div id="is-grid-wrap">
+
+            <!-- FEATURED tab -->
+            <div id="is-tab-featured">
+              <div class="is-section-bar">
+                <span class="is-section-label">Featured</span>
+                <div style="display:flex;align-items:center;gap:8px">
+                  <span class="is-section-timer">⏱ Ends in 3D 6H</span>
+                  <div class="is-coins">🪙 7258</div>
+                </div>
+              </div>
+              <div class="is-grid featured-grid" style="margin-top:8px">
+                <div class="is-item featured">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#5b3fa0,#2d1b69)">
+                    <span style="font-size:40px">🐧</span>
+                    <div class="is-rarity epic">⭐ Epic</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Queen Lloyd <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#c0392b,#922b21)">
+                    <span style="font-size:30px">🦊</span>
+                    <div class="is-rarity epic">⭐ Epic</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Mulan Fuguee <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#d4a017,#a07810)">
+                    <span style="font-size:30px">🦆</span>
+                    <div class="is-rarity uncommon">⭐ Uncommon</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Lady Quack <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#27ae60,#1e8449)">
+                    <span style="font-size:28px">🚗</span>
+                    <div class="is-cc">🔵 162cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">6-Ten Trolley <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Decor</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#85c1e9,#5dade2)">
+                    <span style="font-size:28px">🛒</span>
+                    <div class="is-cc">🔵 178cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Minecart <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Kart</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#7d3c98,#6c3483)">
+                    <span style="font-size:28px">🚙</span>
+                    <div class="is-cc">🔵 178cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Joker Monstro <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Decor</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- OUTFITS tab (hidden by default) -->
+            <div id="is-tab-outfits" style="display:none">
+              <div class="is-section-bar">
+                <span class="is-section-label">Weekly</span>
+                <span class="is-section-timer">⏱ Refresh in 1D 6H</span>
+              </div>
+              <div class="is-grid" style="margin-top:8px">
+                <div class="is-item featured">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#8e44ad,#6c3483)">
+                    <span style="font-size:36px">🦊</span>
+                    <div class="is-rarity ipcol">⭐ IP Collab</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Gekkerbot Bundle <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Bundle</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:#1a1a2e">
+                    <span style="font-size:28px">🐑</span>
+                    <div class="is-rarity ipcol">⭐ IP Collab</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">The Lamb <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:#2c0a0a">
+                    <span style="font-size:28px">🦇</span>
+                    <div class="is-rarity legendary">⭐ Legendary</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Dracula Levi <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+              </div>
+              <div class="is-section-bar" style="margin-top:8px">
+                <span class="is-section-label">Daily</span>
+                <span class="is-section-timer">⏱ Refresh in 6H 15M</span>
+              </div>
+              <div class="is-grid" style="margin-top:8px">
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#2980b9,#1a5276)">
+                    <span style="font-size:28px">🐱</span>
+                    <div class="is-rarity uncommon">⭐ Uncommon</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Blue Raincoat <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#e91e8c,#ad1457)">
+                    <span style="font-size:28px">🐷</span>
+                    <div class="is-rarity uncommon">⭐ Uncommon</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Pink Yurusa <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#795548,#4e342e)">
+                    <span style="font-size:28px">🐄</span>
+                    <div class="is-rarity standard">⭐ Standard</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Cattle Valerie <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Outfit</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- KARTS tab (hidden by default) -->
+            <div id="is-tab-karts" style="display:none">
+              <div class="is-section-bar">
+                <span class="is-section-label">The Kart</span>
+                <div class="is-coins">🪙 7258</div>
+              </div>
+              <div class="is-grid" style="margin-top:8px">
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#27ae60,#1a7a40)">
+                    <span style="font-size:28px">🏎️</span>
+                    <div class="is-cc">🔵 183cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Greedy Snob <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Decor</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#85c1e9,#2e86c1)">
+                    <span style="font-size:28px">🛒</span>
+                    <div class="is-cc">🔵 178cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Snow Minecart <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Decor</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#d6eaf8,#aed6f1)">
+                    <span style="font-size:28px">🛒</span>
+                    <div class="is-cc">🔵 178cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Minecart <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Kart</div>
+                  </div>
+                </div>
+                <div class="is-item wide">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#d4a017,#f39c12);aspect-ratio:2/1">
+                    <span style="font-size:36px">🚜</span>
+                    <div class="is-cc">🔵 158cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Trolley <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Kart</div>
+                  </div>
+                </div>
+                <div class="is-item">
+                  <div class="is-item-thumb" style="background:linear-gradient(135deg,#1a237e,#283593)">
+                    <span style="font-size:28px">🚙</span>
+                    <div class="is-cc">🔵 164cc</div>
+                  </div>
+                  <div class="is-item-info">
+                    <div class="is-item-name">Furniture Trolley <span class="is-item-check">✓</span></div>
+                    <div class="is-item-type">Decor</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- GESTURES tab (hidden by default) -->
+            <div id="is-tab-gestures" style="display:none">
+              <div class="is-grid gestures-grid" style="margin-top:4px">
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Ta-Da <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Da-Ta <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff8a50,#ff5722)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Ten-Hut <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Yawn <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Hooray <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Arms Akimbo <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Disappoint <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Angry <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Look Around <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Bow <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Head Scratch <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Conductor <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Applaud <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Sway <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+                <div class="is-item"><div class="is-item-thumb" style="background:linear-gradient(135deg,#ff7043,#e64a19)"><span style="font-size:22px">🐕</span></div><div class="is-item-info"><div class="is-item-name">Oh No <span class="is-item-check">✓</span></div><div class="is-item-type">Gesture</div></div></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAYER 4: Surprise Eggs -->
+    <div class="layer-slide right" id="slide-4">
+      <img class="lobby-layer" src="assets/imglobby/4.png" alt="layer4">
+      <div class="layer-content" id="layer4-content">
+
+        <!-- Top bar -->
+        <div id="se-topbar">
+          <div id="se-title">
+            <span>🥚</span>
+            <span>Surprise Eggs</span>
+          </div>
+          <div id="se-topright">
+            <div class="se-icon-btn" id="se-btn-history">↺</div>
+            <div class="se-icon-btn" id="se-btn-info">ℹ</div>
+            <div id="se-coins">🪙 509</div>
+            <div id="se-sure-btn">✦ Sure Egg</div>
+          </div>
+        </div>
+
+        <!-- Machine image center -->
+        <div id="se-machine">
+          <img id="se-machine-img" src="assets/imglobby/4.png" alt="Surprise Eggs Machine">
+        </div>
+
+        <!-- Bottom roll buttons -->
+        <div id="se-bottom">
+          <div id="se-coin-slot">🪙</div>
+          <div class="se-roll-btn" id="se-btn-roll1">
+            <span>🥚</span>
+            <span>×1</span>
+          </div>
+          <div class="se-roll-btn" id="se-btn-roll10">
+            <span>🥚</span>
+            <span>×10</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- LAYER 5: Quick Match -->
+    <div class="layer-slide" id="slide-5">
+      <img class="lobby-layer" src="assets/imglobby/5.png" alt="layer5">
+      <div id="layer5-content">
+
+        <!-- LEFT: Player panel -->
+        <div id="qm-panel">
+          <div id="qm-avatar-wrap">
+            <img src="assets/defaultuseraccountimg/user.png" alt="avatar" onerror="this.style.display='none';this.parentElement.textContent='🐹'">
+          </div>
+          <div id="qm-name">Player</div>
+
+          <div class="qm-btn" id="qm-party-btn">🐾 Party Up</div>
+          <div class="qm-btn" id="qm-start-btn"><div class="qm-btn-inner">▶ Start Match</div></div>
+          <div class="qm-btn" id="qm-cancel-btn">✕ Cancel</div>
+        </div>
+
+        <!-- RIGHT: Weekly Challenge -->
+        <div id="qm-challenge">
+          <div id="qm-challenge-header">
+            <div id="qm-challenge-trophy">🏆</div>
+            <div id="qm-challenge-title-wrap">
+              <div id="qm-challenge-title">Weekly Challenge</div>
+              <div id="qm-challenge-refresh">⏱ Refresh in 4D 6H</div>
+            </div>
+          </div>
+          <div id="qm-quests">
+            <div class="qm-quest">
+              <div class="qm-quest-icon">🐕<div class="xp-badge">x1000</div></div>
+              <div class="qm-quest-right">
+                <div class="qm-quest-name">Use canine and win 1···<span class="qm-quest-check">✓</span></div>
+                <div class="qm-quest-progress-wrap"><div class="qm-quest-bar" style="width:100%"></div></div>
+              </div>
+            </div>
+            <div class="qm-quest">
+              <div class="qm-quest-icon">🥚<div class="xp-badge">x2000</div></div>
+              <div class="qm-quest-right">
+                <div class="qm-quest-name">Use egg-laying anim···<span class="qm-quest-check">✓</span></div>
+                <div class="qm-quest-progress-wrap"><div class="qm-quest-bar" style="width:100%"></div></div>
+              </div>
+            </div>
+            <div class="qm-quest">
+              <div class="qm-quest-icon" style="background:#e88a00">🥩<div class="xp-badge">x3000</div></div>
+              <div class="qm-quest-right">
+                <div class="qm-quest-name">Use meat-eating ani··· 3/10</div>
+                <div class="qm-quest-progress-wrap"><div class="qm-quest-bar" style="width:30%"></div></div>
+              </div>
+            </div>
+            <div class="qm-quest">
+              <div class="qm-quest-icon" style="background:#8bc34a">🌿<div class="xp-badge">x3000</div></div>
+              <div class="qm-quest-right">
+                <div class="qm-quest-name">Use plant-eating ani··· 1/3</div>
+                <div class="qm-quest-progress-wrap"><div class="qm-quest-bar" style="width:33%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom: mode selector -->
+        <div id="qm-modes">
+          <div class="qm-mode active">
+            <div class="qm-mode-img">🌀</div>
+            <div class="qm-mode-label">What If?</div>
+            <div class="qm-mode-tick">✓</div>
+          </div>
+          <div class="qm-mode">
+            <div class="qm-mode-img">🏔️</div>
+            <div class="qm-mode-label">Last Stand Classic</div>
+            <div class="qm-mode-tick">✓</div>
+          </div>
+          <div class="qm-mode">
+            <div class="qm-mode-img">🏆</div>
+            <div class="qm-mode-label">Team Score</div>
+            <div class="qm-mode-tick">✓</div>
+          </div>
+          <div class="qm-mode">
+            <div class="qm-mode-img">💥</div>
+            <div class="qm-mode-label">Smash</div>
+            <div class="qm-mode-tick">✓</div>
+          </div>
+          <div class="qm-mode">
+            <div class="qm-mode-img">🏎️</div>
+            <div class="qm-mode-label">Nemo Kart</div>
+            <div class="qm-mode-tick">✓</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <div id="menu-content">
+    <!-- BOTTOM BAR -->
+    <div class="lobby-bottom">
+      <div class="bar-left">
+        <div class="bar-currency" id="btn-itemshop">
+          <img class="bar-currency-icon" src="assets/miniicon/itemshop.png" alt="shop">
+          <span class="bar-currency-val">0</span>
+        </div>
+        <div class="bar-currency">
+          <img class="bar-currency-icon" src="assets/miniicon/dog.png" alt="dog">
+          <span class="bar-currency-val">0</span>
+        </div>
+        <div class="bar-currency">
+          <img class="bar-currency-icon" src="assets/miniicon/money.png" alt="money">
+          <span class="bar-currency-val">0</span>
+        </div>
+        <div class="bar-more">☰</div>
+      </div>
+
+      <div class="bar-center">
+        <div class="bar-confirm" id="bar-confirm-btn">
+          <div class="bar-confirm-key" id="bar-confirm-key">A</div>
+          <span class="bar-confirm-label" id="bar-confirm-label">Confirm</span>
+        </div>
+      </div>
+
+      <div class="bar-right">
+        <div class="bar-profile" id="lobby-profile">
+          <img class="bar-profile-avatar" src="assets/defaultuseraccountimg/user.png" alt="avatar" id="bar-avatar">
+          <div class="bar-profile-info">
+            <span class="bar-profile-name" id="bar-name">Player</span>
+            <div class="bar-profile-xp">
+              <div class="bar-profile-xp-fill"></div>
+            </div>
+          </div>
+          <div class="bar-profile-badge">N</div>
+        </div>
+        <div class="bar-icon-btn">
+          <img src="assets/miniicon/mic.png" alt="mic" style="width:100%;height:100%;object-fit:contain;border-radius:0">
+        </div>
+        <div class="bar-squad">
+          <img src="assets/miniicon/friends.png" alt="friends" style="width:16px;height:16px;object-fit:contain;flex-shrink:0">
+          <span>0/0</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Back button floating — muncul saat Custom Game (layer 1) aktif -->
+<div id="cg-back">
+  <div id="cg-back-arrow">◀</div>
+  <div id="cg-back-label">Back</div>
+</div>
+
+
+
+
+<!-- Banner Ads Modal (muncul saat buka game) -->
+<div id="bannerads-overlay">
+  <div id="bannerads-modal">
+    <img id="bannerads-img" src="assets/imgads/bannerads.png" alt="Banner Ads">
+    <div id="bannerads-buttons">
+      <div class="bannerads-btn" id="bannerads-close">Close</div>
+      <div class="bannerads-btn" id="bannerads-visit">Visit Forum</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SETTINGS MODAL ── -->
+<div id="settings-overlay">
+  <div id="settings-modal">
+
+    <!-- Tabs -->
+    <div id="settings-tabs">
+      <div class="settings-tab active" data-stab="general"><span class="settings-tab-icon">🖥️</span> General</div>
+      <div class="settings-tab" data-stab="graphic"><span class="settings-tab-icon">🖼️</span> Graphic</div>
+      <div class="settings-tab" data-stab="sound"><span class="settings-tab-icon">🔊</span> Sound</div>
+      <div class="settings-tab" data-stab="control"><span class="settings-tab-icon">🎮</span> Control</div>
+    </div>
+
+    <!-- Content -->
+    <div id="settings-content">
+
+      <!-- GENERAL -->
+      <div id="stab-general">
+        <div class="settings-row">
+          <div class="settings-row-label">Language</div>
+          <div class="settings-dropdown">English <span class="settings-dropdown-arrow">▼</span></div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-left">
+            <div class="settings-row-label">Server &amp; Region</div>
+            <div class="settings-row-sub">Global Server - North America 📶 44 ms</div>
+          </div>
+          <div class="settings-action-btn">Switch</div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-left">
+            <div class="settings-row-label">Network Stability Adjustment</div>
+            <div class="settings-row-sub">Stronger adjustment will increase control latency</div>
+          </div>
+          <div class="settings-stepper">
+            <div class="settings-stepper-btn">‹</div>
+            <div class="settings-stepper-val">Auto</div>
+            <div class="settings-stepper-btn">›</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Feedback</div>
+          <div class="settings-action-btn">⚙️ Submit</div>
+        </div>
+        <div class="settings-row customer-id">
+          <div class="settings-row-label">My Customer Service ID: ●●●●●●●</div>
+          <div class="settings-action-btn">👁 Inspect</div>
+        </div>
+      </div>
+
+      <!-- GRAPHIC -->
+      <div id="stab-graphic" style="display:none">
+        <div class="settings-row">
+          <div class="settings-row-label">Display Mode</div>
+          <div class="settings-dropdown">Full Screen <span class="settings-dropdown-arrow">▼</span></div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Resolution</div>
+          <div class="settings-dropdown">1920 x 1080 <span class="settings-dropdown-arrow">▼</span></div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">AMD FSR 2</div>
+          <div class="settings-stepper">
+            <div class="settings-stepper-btn">‹</div>
+            <div class="settings-stepper-val">Balanced</div>
+            <div class="settings-stepper-btn">›</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">DLSS</div>
+          <div class="settings-stepper">
+            <div class="settings-stepper-btn">‹</div>
+            <div class="settings-stepper-val">Off</div>
+            <div class="settings-stepper-btn">›</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">NVIDIA Reflex Low Latency</div>
+          <div class="settings-stepper">
+            <div class="settings-stepper-btn">‹</div>
+            <div class="settings-stepper-val">On + Boost</div>
+            <div class="settings-stepper-btn">›</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">V-Sync</div>
+          <div class="settings-toggle" id="toggle-vsync">
+            <div class="settings-toggle-knob"></div>
+            <span class="settings-toggle-label">OFF</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOUND -->
+      <div id="stab-sound" style="display:none">
+        <div class="settings-row">
+          <div class="settings-row-label">Master Volume</div>
+          <div class="settings-slider-wrap">
+            <span class="settings-slider-val">100</span>
+            <input type="range" class="settings-slider" min="0" max="100" value="100">
+            <div class="settings-slider-lock">🔒</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Music Volume</div>
+          <div class="settings-slider-wrap">
+            <span class="settings-slider-val">100</span>
+            <input type="range" class="settings-slider" min="0" max="100" value="100">
+            <div class="settings-slider-lock">🔒</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">SFX Volume</div>
+          <div class="settings-slider-wrap">
+            <span class="settings-slider-val">100</span>
+            <input type="range" class="settings-slider" min="0" max="100" value="100">
+            <div class="settings-slider-lock">🔒</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Voice Chat Range</div>
+          <div class="settings-stepper">
+            <div class="settings-stepper-btn">‹</div>
+            <div class="settings-stepper-val">Nobody</div>
+            <div class="settings-stepper-btn">›</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Voice Chat Volume</div>
+          <div class="settings-slider-wrap">
+            <span class="settings-slider-val">75</span>
+            <input type="range" class="settings-slider" min="0" max="100" value="75">
+            <div class="settings-slider-lock">🔒</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONTROL -->
+      <div id="stab-control" style="display:none">
+        <div class="settings-row">
+          <div class="settings-row-label">Mouse Sensitivity</div>
+          <div class="settings-slider-wrap">
+            <span class="settings-slider-val">50</span>
+            <input type="range" class="settings-slider" min="0" max="100" value="50">
+            <div class="settings-slider-lock">🔒</div>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Invert Y Axis</div>
+          <div class="settings-toggle" id="toggle-invert">
+            <div class="settings-toggle-knob"></div>
+            <span class="settings-toggle-label">OFF</span>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Vibration</div>
+          <div class="settings-toggle on" id="toggle-vibration">
+            <div class="settings-toggle-knob"></div>
+            <span class="settings-toggle-label">ON</span>
+          </div>
+        </div>
+        <div class="settings-row">
+          <div class="settings-row-label">Controller Layout</div>
+          <div class="settings-stepper">
+            <div class="settings-stepper-btn">‹</div>
+            <div class="settings-stepper-val">Default</div>
+            <div class="settings-stepper-btn">›</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Footer -->
+    <div id="settings-footer">
+      <div class="settings-footer-btn" id="btn-settings-cancel">Cancel</div>
+      <div class="settings-footer-btn" id="btn-settings-reset">Reset</div>
+      <div class="settings-footer-btn" id="btn-settings-apply">Apply</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+// ── Standalone detect ──
+if (window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone) {
+  document.body.classList.add('standalone');
+}
+
+// ── Helpers ──
+const wait = ms => new Promise(r => setTimeout(r, ms));
+
+// ── LAYER CAROUSEL SYSTEM (dari referensi) ──
+let currentLayer = 2;
+let carouselBusy = false;
+
+// Posisi tetap setiap layer berdasarkan layer aktif
+// Layout: ...1... [2] ...5... 3 ...4...
+// Layer 1 (Custom Game) dari kanan, Layer 5 (Quick Match) dari kiri
+const LAYER_ORDER = { 1: -1, 2: 0, 5: 1, 3: 2, 4: 3 };
+
+function getAbsolutePositions(active) {
+  const center = LAYER_ORDER[active];
+  const result = {};
+  for (const [id, pos] of Object.entries(LAYER_ORDER)) {
+    result[Number(id)] = pos - center;
+  }
+  return result;
+}
+
+// Set transform layer tanpa/dengan animasi
+function placeLayer(id, x, animate) {
+  const el = document.getElementById('slide-' + id);
+  if (!el) return;
+  el.style.transition = 'none';
+  if (!animate) {
+    el.style.transform = `translateX(${x * 100}%)`;
+  } else {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        el.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
+        el.style.transform = `translateX(${x * 100}%)`;
+      });
+    });
+  }
+}
+
+// Snap semua layer ke posisi tanpa animasi
+function snapToLayer(active) {
+  const pos = getAbsolutePositions(active);
+  [1, 2, 3, 4, 5].forEach(id => placeLayer(id, pos[id], false));
+  [1, 2, 3, 4, 5].forEach(id => {
+    const el = document.getElementById('slide-' + id);
+    if (el) el.classList.toggle('active', id === active);
+  });
+}
+
+// Layer mana yang "dilewati" saat transisi skip
+function getSkippedLayers(from, to) {
+  const pos = getAbsolutePositions(from); // posisi saat ini
+  const pFrom = pos[from]; // = 0 selalu (layer aktif di tengah)
+  const pTo   = pos[to];   // posisi tujuan relatif dari sekarang
+  const skipped = [];
+  [1, 2, 3, 4, 5].forEach(id => {
+    if (id === from || id === to) return;
+    const p = pos[id];
+    // Skip layer yang posisinya di antara from (0) dan to
+    if (pTo > 0 && p > 0 && p < pTo) skipped.push(id);
+    if (pTo < 0 && p < 0 && p > pTo) skipped.push(id);
+  });
+  return skipped;
+}
+
+// Transisi animasi dari → ke
+function doTransition(from, to) {
+  carouselBusy = true;
+  const posFrom = getAbsolutePositions(from);
+  const posTo   = getAbsolutePositions(to);
+  const layersEl = document.getElementById('lobby-layers');
+  const skipped  = getSkippedLayers(from, to);
+
+  // Snap semua ke posisi FROM, aktifkan GPU layer
+  [1, 2, 3, 4, 5].forEach(id => {
+    const el = document.getElementById('slide-' + id);
+    if (!el) return;
+    el.style.transition = 'none';
+    el.style.transform = `translateX(${posFrom[id] * 100}%) translateZ(0)`;
+    el.style.filter = '';
+    el.style.willChange = skipped.includes(id) ? 'auto' : 'transform, filter';
+    if (skipped.includes(id)) {
+      el.style.opacity = '0';
+      el.style.pointerEvents = 'none';
+    }
+  });
+
+  layersEl.offsetHeight;
+
+  [1, 2, 3, 4, 5].forEach(id => {
+    const el = document.getElementById('slide-' + id);
+    if (el) el.classList.toggle('active', id === to);
+  });
+
+  // Animasi ke posisi TO
+  [1, 2, 3, 4, 5].forEach(id => {
+    const el = document.getElementById('slide-' + id);
+    if (!el) return;
+    if (skipped.includes(id)) {
+      el.style.transition = 'none';
+      el.style.transform = `translateX(${posTo[id] * 100}%) translateZ(0)`;
+    } else {
+      el.style.transition = 'transform 0.5s cubic-bezier(0.4,0,0.2,1)';
+      el.style.transform = `translateX(${posTo[id] * 100}%) translateZ(0)`;
+    }
+  });
+
+  currentLayer = to;
+
+  setTimeout(() => {
+    [1, 2, 3, 4, 5].forEach(id => {
+      const el = document.getElementById('slide-' + id);
+      if (!el) return;
+      el.style.opacity = '';
+      el.style.pointerEvents = '';
+      el.style.willChange = 'auto';
+      el.style.transition = '';
+    });
+    snapToLayer(to);
+    carouselBusy = false;
+  }, 520);
+}
+
+// Slide sound
+const slideSound = new Audio('assets/soundfx/splashloadingfx.wav');
+slideSound.preload = 'auto';
+
+function playSlideSound() {
+  const s = slideSound.cloneNode();
+  s.volume = 1.0;
+  s.play().catch(() => {});
+}
+
+function slideToLayer(to) {
+  if (to === currentLayer) return;
+  if (carouselBusy) return;
+
+  playSlideSound();
+
+  // Show/hide topbar surprise eggs
+  const seTopbar = document.getElementById('se-topbar');
+  if (seTopbar) {
+    if (to === 4) {
+      seTopbar.classList.add('visible');
+      seTopbar.classList.remove('hidden');
+    } else if (currentLayer === 4) {
+      seTopbar.classList.remove('visible');
+      seTopbar.classList.add('hidden');
+    }
+  }
+
+  doTransition(currentLayer, to);
+  document.querySelectorAll('.lobby-menu-item').forEach(i => {
+    i.classList.remove('active', 'was-active');
+  });
+  hoveredMenu = null;
+
+  const cgBack = document.getElementById('cg-back');
+  if (cgBack) {
+    if (to === 1 || to === 3 || to === 4 || to === 5) cgBack.classList.add('visible');
+    else cgBack.classList.remove('visible');
+  }
+}
+
+// Init
+snapToLayer(2);
+
+// ── Menu navigation ──
+document.querySelectorAll('.lobby-menu-item').forEach(item => {
+  item.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    const menu = item.dataset.menu;
+    document.querySelectorAll('.lobby-menu-item').forEach(i => i.classList.remove('active'));
+    item.classList.add('active');
+    if (menu === 'customgame') slideToLayer(1);
+    if (menu === 'quickmatch') slideToLayer(5);
+    if (menu === 'exit') window.location.href = 'about:blank';
+  });
+});
+
+// cg-back button
+const cgBack = document.getElementById('cg-back');
+if (cgBack) {
+  cgBack.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    if (currentLayer === 4) slideToLayer(3);
+    else if (currentLayer === 5) { resetQmState(); slideToLayer(2); }
+    else slideToLayer(2);
+  });
+}
+
+// ── Item Shop button → layer 3 (langsung, skip layer 2) ──
+document.getElementById('btn-itemshop').addEventListener('click', (e) => {
+  if (!e._fromPointer) return;
+  if (currentLayer === 3 || currentLayer === 4) return; // sudah di area shop
+  slideToLayer(3);
+});
+
+// ── Surprise Eggs button → layer 4 ──
+document.getElementById('btn-surprise').addEventListener('click', (e) => {
+  if (!e._fromPointer) return;
+  if (currentLayer === 4) return; // sudah di layer 4
+  if (currentLayer !== 3) return; // hanya dari layer 3
+  slideToLayer(4);
+});
+
+// ── Item Shop tab switching ──
+document.querySelectorAll('.is-tab-nav, .is-tab-nav-pill').forEach(tab => {
+  tab.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    const tabId = tab.dataset.isTab;
+    if (!tabId) return;
+    document.querySelectorAll('.is-tab-nav, .is-tab-nav-pill').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    ['featured','outfits','karts','gestures'].forEach(id => {
+      const el = document.getElementById('is-tab-' + id);
+      if (el) el.style.display = id === tabId ? 'block' : 'none';
+    });
+  });
+});
+
+// ── Menu hover via pointer position ──
+let hoveredMenu = null;
+let hoverRaf = null;
+let hoverDelay = null;
+
+function checkMenuHover(x, y) {
+  if (hoverRaf) return;
+  hoverRaf = requestAnimationFrame(() => {
+    hoverRaf = null;
+    _doCheckMenuHover(x, y);
+  });
+}
+
+function _doCheckMenuHover(x, y) {
+  const items = document.querySelectorAll('.lobby-menu-item');
+
+  // pointer sudah pointer-events: none di CSS, langsung elementFromPoint
+  const el = document.elementFromPoint(x, y);
+
+  let found = null;
+  if (el) {
+    const menuItem = el.closest('.lobby-menu-item');
+    if (menuItem) found = menuItem;
+  }
+
+  if (found === hoveredMenu) return;
+
+  items.forEach(item => {
+    if (item.classList.contains('active')) {
+      item.classList.remove('active');
+      if (found) item.classList.add('was-active');
+      else item.classList.remove('was-active');
+    }
+  });
+
+  if (!found) {
+    items.forEach(item => item.classList.remove('was-active'));
+  }
+
+  if (found) {
+    found.classList.remove('was-active');
+    const pill = found.querySelector('.menu-pill');
+    if (pill) {
+      pill.style.animation = 'none';
+      pill.offsetWidth;
+      pill.style.animation = '';
+    }
+    found.classList.add('active');
+  }
+
+  hoveredMenu = found;
+}
+
+// ── BLOKIR semua interaksi langsung (bukan dari pointer) ──
+document.addEventListener('click', function(e) {
+  if (!e._fromPointer) {
+    e.stopImmediatePropagation();
+    e.preventDefault();
+  }
+}, true);
+
+// ── HOVER POP untuk semua elemen bertabel ──
+const HOVERABLE_SELECTORS = [
+  '.bar-btn', '.bar-currency', '.bar-more',
+  '.bar-profile', '.bar-icon-btn', '.bar-squad',
+  '.lobby-card', '.cg-header-btn', '.cg-tool-btn', '.cg-room',
+  '.bannerads-btn', '#cg-back',
+  '.is-item', '.is-action-btn', '.is-tab-nav', '.is-tab-nav-pill',
+  '.se-icon-btn', '#se-sure-btn', '.se-roll-btn', '#se-coin-slot',
+  '.settings-tab', '.settings-footer-btn', '.settings-action-btn', '.settings-toggle', '.settings-stepper-btn',
+  '.qm-btn', '.qm-mode',
+  '#cs-ready-btn', '.cs-pick-item'
+];
+let hoveredEl = null;
+
+function checkElementHover(x, y) {
+  const el = document.elementFromPoint(x, y);
+
+  let found = null;
+  if (el) {
+    for (const sel of HOVERABLE_SELECTORS) {
+      const match = el.closest(sel);
+      if (match) { found = match; break; }
+    }
+  }
+
+  if (found === hoveredEl) return;
+  if (hoveredEl) hoveredEl.classList.remove('hovered');
+  if (found) found.classList.add('hovered');
+  hoveredEl = found;
+}
+
+// ── PWA ──
+if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(() => {});
+
+// ── VIRTUAL POINTER ──
+(function() {
+  const ptr = document.getElementById('virtual-pointer');
+  if (!ptr) return;
+
+  let pX = window.innerWidth / 2;
+  let pY = window.innerHeight / 2;
+  let rafId = null;
+
+  let touchStartTime = 0;
+  let totalMove = 0;
+
+  const SENSITIVITY  = 1.2;
+  const TAP_MAX_MOVE = 6;
+  const TAP_MAX_TIME = 250;
+
+  function clamp(val, min, max) { return Math.min(Math.max(val, min), max); }
+
+  function updatePointer() {
+    if (rafId) cancelAnimationFrame(rafId);
+    rafId = requestAnimationFrame(() => {
+      ptr.style.transform = `translate(${pX}px, ${pY}px)`;
+    });
+  }
+
+  // ── CLICK SOUND ──
+  const CLICKABLE_SELECTORS = [
+    '.lobby-menu-item',
+    '.bar-btn', '.bar-currency', '.bar-more',
+    '.bar-profile', '.bar-icon-btn', '.bar-squad',
+    '.lobby-card', '.cg-header-btn', '.cg-tool-btn', '.cg-room',
+    '#cg-back', '#btn-create', '#btn-quickjoin', '#btn-refresh',
+    '.cg-tool-btn', '#bar-confirm-btn', '.bannerads-btn',
+    '.is-item', '.is-action-btn', '.is-tab-nav', '.is-tab-nav-pill', '#btn-itemshop',
+    '.se-icon-btn', '#se-sure-btn', '.se-roll-btn', '#se-coin-slot', '#btn-surprise',
+    '.settings-tab', '.settings-footer-btn', '.settings-action-btn', '.settings-toggle', '.settings-stepper-btn',
+    '.qm-btn', '.qm-mode', '#cs-ready-btn', '.cs-pick-item'
+  ];
+  const clickSound = new Audio('assets/soundfx/touch.mp3');
+  clickSound.preload = 'auto';
+
+  function playClickSound(el) {
+    for (const sel of CLICKABLE_SELECTORS) {
+      if (el.closest(sel)) {
+        const s = clickSound.cloneNode();
+        s.volume = 0.7;
+        s.play().catch(() => {});
+        return;
+      }
+    }
+  }
+
+  function simulateTap() {
+    ptr.style.pointerEvents = 'none';
+    const el = document.elementFromPoint(pX, pY);
+
+    if (el) {
+      playClickSound(el);
+      const mkEvent = (type) => {
+        const ev = new MouseEvent(type, {
+          bubbles: true, cancelable: true,
+          clientX: pX, clientY: pY, view: window
+        });
+        ev._fromPointer = true;
+        return ev;
+      };
+      el.dispatchEvent(mkEvent('mousedown'));
+      el.dispatchEvent(mkEvent('mouseup'));
+      el.dispatchEvent(mkEvent('click'));
+
+      // Dispatch ke closest ancestor — tapi HANYA jika ancestor berada di:
+      // 1. Layer aktif saat ini, atau
+      // 2. Elemen di luar layer slides (bottom bar, modal, dll)
+      const activeSlide = document.getElementById('slide-' + currentLayer);
+      const menuContent = document.getElementById('menu-content');
+      const bannerOverlay = document.getElementById('bannerads-overlay');
+
+      const isInActiveLayer = activeSlide && activeSlide.contains(el);
+      const isInBottomBar   = menuContent && menuContent.contains(el);
+      const isInModal       = bannerOverlay && bannerOverlay.contains(el);
+      const isInCgBack      = document.getElementById('cg-back')?.contains(el);
+
+      if (!isInActiveLayer && !isInBottomBar && !isInModal && !isInCgBack) return;
+
+      const ALL_CLICK_SELS = [
+        '.lobby-menu-item', '.bar-btn', '.bar-currency', '.bar-more',
+        '.bar-profile', '.bar-icon-btn', '.bar-squad',
+        '.lobby-card', '.cg-header-btn', '.cg-tool-btn', '.cg-room',
+        '#cg-back', '#btn-itemshop', '#btn-surprise',
+        '.is-tab-nav', '.is-tab-nav-pill', '.is-item', '.is-action-btn', '.bannerads-btn',
+        '.se-icon-btn', '#se-sure-btn', '.se-roll-btn', '#se-coin-slot',
+        '.settings-tab', '.settings-footer-btn', '.settings-action-btn', '.settings-toggle', '.settings-stepper-btn',
+        '.qm-btn', '.qm-mode', '#cs-ready-btn', '.cs-pick-item'
+      ];
+      for (const sel of ALL_CLICK_SELS) {
+        const ancestor = el.closest(sel);
+        if (ancestor && ancestor !== el) {
+          ancestor.dispatchEvent(mkEvent('click'));
+          break;
+        }
+      }
+    }
+  }
+
+  function simulateScroll(dx, dy) {
+    const el = document.elementFromPoint(pX, pY);
+    if (!el) return;
+    let t = el;
+    while (t && t !== document.body) {
+      const s = window.getComputedStyle(t);
+      if (/auto|scroll/.test(s.overflow + s.overflowY + s.overflowX)) {
+        t.scrollBy(dx, dy); return;
+      }
+      t = t.parentElement;
+    }
+    window.scrollBy(dx, dy);
+  }
+
+  // ── State tracking per touch ──
+  // touch1 = jari pertama (pointer / anchor)
+  // touch2 = jari kedua (scroll)
+  let touch1Id = null;   // identifier jari pertama
+  let touch2Id = null;   // identifier jari kedua
+  let t1LastX = 0, t1LastY = 0;  // posisi terakhir jari 1
+  let t2LastX = 0, t2LastY = 0;  // posisi terakhir jari 2
+
+  function getTouchById(touches, id) {
+    for (let i = 0; i < touches.length; i++) {
+      if (touches[i].identifier === id) return touches[i];
+    }
+    return null;
+  }
+
+  document.addEventListener('touchstart', function(e) {
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+
+      if (touch1Id === null) {
+        // Jari pertama → jadi anchor pointer
+        touch1Id = t.identifier;
+        t1LastX = t.clientX;
+        t1LastY = t.clientY;
+        touchStartTime = Date.now();
+        totalMove = 0;
+      } else if (touch2Id === null && t.identifier !== touch1Id) {
+        // Jari kedua → jadi scroll finger
+        touch2Id = t.identifier;
+        t2LastX = t.clientX;
+        t2LastY = t.clientY;
+      }
+    }
+
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('touchmove', function(e) {
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+
+      if (t.identifier === touch1Id && touch2Id === null) {
+        // Hanya 1 jari → gerak pointer seperti biasa
+        const rawDX = t.clientX - t1LastX;
+        const rawDY = t.clientY - t1LastY;
+        const moved = Math.abs(rawDX) + Math.abs(rawDY);
+        t1LastX = t.clientX;
+        t1LastY = t.clientY;
+        totalMove += moved;
+
+        if (moved > 0.5) {
+          pX = clamp(pX + rawDX * SENSITIVITY, 0, window.innerWidth);
+          pY = clamp(pY + rawDY * SENSITIVITY, 0, window.innerHeight);
+          updatePointer();
+          checkMenuHover(pX, pY);
+          checkElementHover(pX, pY);
+        }
+
+      } else if (t.identifier === touch2Id && touch1Id !== null) {
+        // Jari kedua bergerak, jari pertama masih hold → SCROLL
+        const rawDX = t.clientX - t2LastX;
+        const rawDY = t.clientY - t2LastY;
+        const moved = Math.abs(rawDX) + Math.abs(rawDY);
+        t2LastX = t.clientX;
+        t2LastY = t.clientY;
+
+        if (moved > 0.5) {
+          simulateScroll(-rawDX, -rawDY);
+        }
+      }
+    }
+
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('touchend', function(e) {
+    for (let i = 0; i < e.changedTouches.length; i++) {
+      const t = e.changedTouches[i];
+
+      if (t.identifier === touch1Id) {
+        // Jari pertama diangkat
+        const dt = Date.now() - touchStartTime;
+        if (touch2Id === null && dt < TAP_MAX_TIME && totalMove < TAP_MAX_MOVE) {
+          // Tap biasa (1 jari, gerak minimal, cepat)
+          simulateTap();
+        }
+        touch1Id = null;
+        totalMove = 0;
+
+      } else if (t.identifier === touch2Id) {
+        // Jari kedua diangkat
+        touch2Id = null;
+      }
+    }
+
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('touchcancel', function() {
+    touch1Id = null;
+    touch2Id = null;
+    totalMove = 0;
+  });
+
+  updatePointer();
+})();
+
+
+// ── QUICK MATCH STATE MACHINE ──
+(function() {
+  const startBtn  = document.getElementById('qm-start-btn');
+  const cancelBtn = document.getElementById('qm-cancel-btn');
+  const partyBtn  = document.getElementById('qm-party-btn');
+  if (!startBtn) return;
+
+  let qmState = 'idle'; // idle → waiting → loading → found
+  let qmTimer = null;
+
+  window.resetQmState = function() {
+    clearTimeout(qmTimer);
+    if (startBtn._countInterval) clearInterval(startBtn._countInterval);
+    qmState = 'idle';
+    startBtn.className = 'qm-btn';
+    startBtn.innerHTML = '<div class="qm-btn-inner">▶ Start Match</div>';
+    cancelBtn.classList.remove('show');
+    partyBtn.classList.remove('disabled');
+  };
+
+  const panel = document.getElementById('qm-panel');
+
+  function triggerJelly() {
+    if (!panel) return;
+    panel.classList.remove('jelly');
+    panel.offsetWidth; // reflow
+    panel.classList.add('jelly');
+    setTimeout(() => panel.classList.remove('jelly'), 520);
+  }
+
+  function setInner(html, animIn) {
+    const inner = document.createElement('div');
+    inner.className = 'qm-btn-inner' + (animIn ? ' ' + animIn : '');
+    inner.innerHTML = html;
+    startBtn.innerHTML = '';
+    startBtn.appendChild(inner);
+    return inner;
+  }
+
+  function animateOut(animOut, then) {
+    const inner = startBtn.querySelector('.qm-btn-inner');
+    if (!inner) { then(); return; }
+    inner.classList.add(animOut);
+    setTimeout(then, 260);
+  }
+
+  function setState(state) {
+    qmState = state;
+
+    if (state === 'waiting') {
+      startBtn.className = 'qm-btn waiting';
+      partyBtn.classList.add('disabled');
+      triggerJelly();
+      setInner('▶ Waiting', 'anim-fade-in');
+      qmTimer = setTimeout(() => setState('loading'), 1200);
+
+    } else if (state === 'loading') {
+      startBtn.className = 'qm-btn loading';
+      cancelBtn.classList.add('show');
+      triggerJelly();
+      animateOut('anim-fade-out-down', () => {
+        setInner('<div class="qm-spinner"></div>', 'anim-fade-in-top');
+        // 2 detik spinner lalu mulai counter
+        qmTimer = setTimeout(() => setState('counting'), 2000);
+      });
+
+    } else if (state === 'counting') {
+      let count = 0;
+      function showCount() {
+        count++;
+        triggerJelly();
+        animateOut('anim-fade-out-down', () => {
+          setInner(`<span class="qm-counter">${count}</span>`, 'anim-fade-in-top');
+          if (count < 10) {
+            startBtn._countInterval = setTimeout(showCount, 1000);
+          } else {
+            setTimeout(() => setState('found'), 600);
+          }
+        });
+      }
+      showCount();
+
+    } else if (state === 'found') {
+      if (startBtn._countInterval) clearTimeout(startBtn._countInterval);
+      startBtn.className = 'qm-btn found';
+      cancelBtn.classList.remove('show');
+      triggerJelly();
+      animateOut('anim-slide-out-left', () => {
+        setInner('Game Found! ✅', 'anim-slide-in-right');
+        // Setelah 2 detik tampil Game Found, mulai splash
+        setTimeout(() => showSplashThenCharSelect(), 2000);
+      });
+    }
+  }
+
+  startBtn.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    if (qmState === 'idle') setState('waiting');
+  });
+
+  cancelBtn.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    resetQmState();
+  });
+
+  // Mode selector
+  document.querySelectorAll('.qm-mode').forEach(mode => {
+    mode.addEventListener('click', (e) => {
+      if (!e._fromPointer) return;
+      document.querySelectorAll('.qm-mode').forEach(m => m.classList.remove('active'));
+      mode.classList.add('active');
+    });
+  });
+})();
+
+
+(function() {
+  const overlay = document.getElementById('settings-overlay');
+
+  function openSettings() {
+    overlay.classList.remove('closing');
+    overlay.classList.add('open');
+  }
+  function closeSettings() {
+    overlay.classList.add('closing');
+    setTimeout(() => {
+      overlay.classList.remove('open', 'closing');
+    }, 340);
+  }
+
+  // Open dari menu Settings
+  document.querySelectorAll('.lobby-menu-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (!e._fromPointer) return;
+      if (item.dataset.menu === 'settings') openSettings();
+    });
+  });
+
+  document.getElementById('btn-settings-cancel').addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    closeSettings();
+  });
+  document.getElementById('btn-settings-apply').addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    closeSettings();
+  });
+  document.getElementById('btn-settings-reset').addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    document.querySelectorAll('.settings-slider').forEach(s => {
+      s.value = s.defaultValue;
+      const valEl = s.previousElementSibling;
+      if (valEl) valEl.textContent = s.value;
+      const pct = s.value + '%';
+      s.style.background = `linear-gradient(to right, #FCD35F 0%, #FCD35F ${pct}, #e8d080 ${pct})`;
+    });
+  });
+
+  // Tab switching
+  document.querySelectorAll('.settings-tab').forEach(tab => {
+    tab.addEventListener('click', (e) => {
+      if (!e._fromPointer) return;
+      const tid = tab.dataset.stab;
+      document.querySelectorAll('.settings-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      ['general','graphic','sound','control'].forEach(id => {
+        const el = document.getElementById('stab-' + id);
+        if (el) el.style.display = id === tid ? 'block' : 'none';
+      });
+    });
+  });
+
+  // Sliders
+  document.querySelectorAll('.settings-slider').forEach(slider => {
+    slider.addEventListener('input', () => {
+      const valEl = slider.previousElementSibling;
+      if (valEl) valEl.textContent = slider.value;
+      const pct = slider.value + '%';
+      slider.style.background = `linear-gradient(to right, #FCD35F 0%, #FCD35F ${pct}, #e8d080 ${pct})`;
+    });
+    const pct = slider.value + '%';
+    slider.style.background = `linear-gradient(to right, #FCD35F 0%, #FCD35F ${pct}, #e8d080 ${pct})`;
+  });
+
+  // Toggles
+  document.querySelectorAll('.settings-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      if (!e._fromPointer) return;
+      const isOn = toggle.classList.toggle('on');
+      const label = toggle.querySelector('.settings-toggle-label');
+      if (label) label.textContent = isOn ? 'ON' : 'OFF';
+    });
+  });
+})();
+
+// ── SPLASH + CHARACTER SELECT ──
+function showSplashThenCharSelect() {
+  const splash = document.getElementById('splash-screen');
+  const cs     = document.getElementById('charselect-screen');
+
+  playSlideSound();
+
+  // Build char graph sebelum slide
+  if (window.musicSystem) window.musicSystem.buildCharGraph();
+
+  // Splash mask-in
+  splash.classList.add('active', 'mask-in');
+
+  // Cave effect aktif di kedua musik saat splash muncul
+  if (window.musicSystem) {
+    window.musicSystem.setLoadingEffect();
+    window.musicSystem.setCharLoadingEffect();
+  }
+
+  // 700ms → charselect aktif di belakang
+  setTimeout(() => {
+    cs.classList.add('active');
+    startCsTimer();
+  }, 700);
+
+  // 7 detik → crossfade lobby → char
+  setTimeout(() => {
+    if (window.musicSystem) window.musicSystem.crossfadeToChar(1.5);
+  }, 7000);
+
+  // 10 detik → splash mask-out + char ke normal
+  setTimeout(() => {
+    splash.classList.remove('mask-in');
+    splash.classList.add('mask-out');
+    if (window.musicSystem) window.musicSystem.setCharNormalEffect(1.5);
+    setTimeout(() => splash.classList.remove('active', 'mask-out'), 650);
+  }, 10000);
+}
+
+
+// ── CHARACTER SELECT LOGIC ──
+(function() {
+  window._csTimerVal = 40;
+  window._csTimerInt = null;
+  window._csReady    = false;
+
+  const timerNum  = document.getElementById('cs-timer-num');
+  const readyBtn  = document.getElementById('cs-ready-btn');
+  const youAvatar = document.querySelector('.cs-char.you .cs-char-avatar');
+
+  window.startCsTimer = function() {
+    if (window._csTimerInt) { clearInterval(window._csTimerInt); window._csTimerInt = null; }
+
+    window._csTimerVal = 40;
+    window._csReady    = false;
+
+    const tNum = document.getElementById('cs-timer-num');
+    const rBtn = document.getElementById('cs-ready-btn');
+
+    if (tNum) tNum.textContent = '40';
+    if (rBtn) {
+      rBtn.classList.remove('starting');
+      rBtn.innerHTML = '<img src="assets/miniicon/ready.png" alt="Ready" id="cs-ready-img">';
+    }
+
+    window._csTimerInt = setInterval(() => {
+      window._csTimerVal--;
+      const n = document.getElementById('cs-timer-num');
+      const b = document.getElementById('cs-ready-btn');
+      if (n) {
+        n.textContent = window._csTimerVal;
+        // Kalau 1 digit, geser ke kiri lebih
+        n.style.right = window._csTimerVal < 10 ? '24px' : '18px';
+      }
+      if (window._csTimerVal <= 0) {
+        clearInterval(window._csTimerInt);
+        window._csTimerInt = null;
+        if (b && !window._csReady) {
+          b.classList.add('starting');
+          b.innerHTML = '<img src="assets/miniicon/starting.png" alt="Starting" id="cs-ready-img">';
+        }
+      }
+    }, 1000);
+  };
+
+  // Ready button — pakai event delegation agar selalu ter-trigger
+  document.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    const b = e.target.closest('#cs-ready-btn');
+    if (!b) return;
+    if (window._csReady) return;
+    window._csReady = true;
+    // Jangan stop timer — biarkan lanjut sampai 0
+    const img = document.getElementById('cs-ready-img');
+    if (img) img.src = 'assets/miniicon/starting.png';
+    b.classList.add('starting');
+  });
+
+  // Avatar picker
+  document.querySelectorAll('.cs-pick-item').forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (!e._fromPointer) return;
+      document.querySelectorAll('.cs-pick-item').forEach(i => i.classList.remove('selected'));
+      item.classList.add('selected');
+      if (youAvatar) youAvatar.textContent = item.dataset.char;
+    });
+  });
+})();
+
+// ── ADS SLIDER ──
+(function() {
+  const strip = document.getElementById('ads-strip');
+  const dots  = document.querySelectorAll('#ads-dots .lobby-card-dot');
+  if (!strip) return;
+  let current = 0;
+  const total = 3;
+
+  function goTo(idx) {
+    current = idx % total;
+    strip.style.transform = `translateX(${-current * (100 / total)}%)`;
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  }
+
+  setInterval(() => goTo(current + 1), 4000);
+})();
+
+(function() {
+  const overlay = document.getElementById('bannerads-overlay');
+  const btnClose = document.getElementById('bannerads-close');
+  const btnVisit = document.getElementById('bannerads-visit');
+
+  function closeBannerAds() {
+    overlay.classList.remove('open');
+    setTimeout(() => { overlay.style.display = 'none'; }, 380);
+  }
+
+  // Auto show bannerads — di-trigger dari intro JS setelah menu tampil penuh
+  window._showBannerAds = function() {
+    overlay.classList.add('open');
+  };
+
+  btnClose.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    closeBannerAds();
+  });
+
+  btnVisit.addEventListener('click', (e) => {
+    if (!e._fromPointer) return;
+    closeBannerAds();
+    // window.open('https://forum.url', '_blank'); // ganti URL forum
+  });
+})();
+
+// ── MUSIC SYSTEM (Web Audio: convolver cave reverb, persis referensi) ──
+
+// ── Lobby Audio ──
+let audioCtx       = null;
+let sourceNode     = null;
+let gainNode       = null;
+let lowpassNode    = null;
+let convolverNode  = null;
+let dryGain        = null;
+let wetGain        = null;
+let lobbyAudioReady = false;
+
+const lobbyTracks = [
+  'assets/audio/lobbyost1.m4a',
+  'assets/audio/lobbyost2.m4a',
+  'assets/audio/lobbyost4.m4a',
+  'assets/audio/lobbyost5.m4a',
+  'assets/audio/lobbyost6.m4a',
+];
+let lobbyMusic = null;
+
+// ── Char Audio ──
+let charGainNode    = null;
+let charLowpassNode = null;
+let charDryGain     = null;
+let charWetGain     = null;
+let charConvolver   = null;
+let charAudioReady  = false;
+const charMusic = new Audio('assets/audio/characterost.m4a');
+charMusic.loop = true;
+charMusic.crossOrigin = 'anonymous';
+
+// ── Cave Impulse Response ──
+function buildCaveIR(ctx) {
+  return new Promise(resolve => {
+    const sr  = ctx.sampleRate;
+    const len = Math.floor(sr * 3.5);
+    const ir  = ctx.createBuffer(2, len, sr);
+    for (let ch = 0; ch < 2; ch++) {
+      const d = ir.getChannelData(ch);
+      for (let i = 0; i < len; i++) {
+        d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.5);
+      }
+    }
+    resolve(ir);
+  });
+}
+
+// ── Build Lobby Audio Graph ──
+function buildAudioGraph() {
+  if (audioCtx) return;
+  audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+  const src = lobbyTracks[Math.floor(Math.random() * lobbyTracks.length)];
+  lobbyMusic = new Audio(src);
+  lobbyMusic.loop = true;
+  lobbyMusic.crossOrigin = 'anonymous';
+
+  sourceNode  = audioCtx.createMediaElementSource(lobbyMusic);
+  gainNode    = audioCtx.createGain();
+
+  lowpassNode = audioCtx.createBiquadFilter();
+  lowpassNode.type = 'lowpass';
+  lowpassNode.frequency.value = 400;
+  lowpassNode.Q.value = 1.2;
+
+  convolverNode = audioCtx.createConvolver();
+  buildCaveIR(audioCtx).then(ir => { convolverNode.buffer = ir; });
+
+  dryGain = audioCtx.createGain();
+  wetGain = audioCtx.createGain();
+  dryGain.gain.value = 0.4;
+  wetGain.gain.value = 0.8;
+
+  sourceNode.connect(lowpassNode);
+  lowpassNode.connect(dryGain);
+  lowpassNode.connect(convolverNode);
+  convolverNode.connect(wetGain);
+  dryGain.connect(gainNode);
+  wetGain.connect(gainNode);
+  gainNode.connect(audioCtx.destination);
+
+  gainNode.gain.value = 1.0;
+  lobbyAudioReady = true;
+}
+
+// ── Build Char Audio Graph (shared audioCtx) ──
+function buildCharAudioGraph() {
+  if (charAudioReady) return;
+  if (!audioCtx) {
+    // Init audioCtx jika belum ada (tanpa lobby dulu)
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+
+  const charSource = audioCtx.createMediaElementSource(charMusic);
+  charGainNode     = audioCtx.createGain();
+  charGainNode.gain.value = 0;
+
+  charLowpassNode  = audioCtx.createBiquadFilter();
+  charLowpassNode.type = 'lowpass';
+  charLowpassNode.frequency.value = 18000;
+  charLowpassNode.Q.value = 1.2;
+
+  charConvolver = audioCtx.createConvolver();
+  buildCaveIR(audioCtx).then(ir => { charConvolver.buffer = ir; });
+
+  charDryGain = audioCtx.createGain();
+  charWetGain = audioCtx.createGain();
+  charDryGain.gain.value = 1.0;
+  charWetGain.gain.value = 0.0;
+
+  charSource.connect(charLowpassNode);
+  charLowpassNode.connect(charDryGain);
+  charLowpassNode.connect(charConvolver);
+  charConvolver.connect(charWetGain);
+  charDryGain.connect(charGainNode);
+  charWetGain.connect(charGainNode);
+  charGainNode.connect(audioCtx.destination);
+
+  charAudioReady = true;
+}
+
+// ── Cave effect: loading screen ──
+function setLoadingEffect() {
+  if (!lobbyAudioReady) return;
+  const t = audioCtx.currentTime;
+  lowpassNode.frequency.setTargetAtTime(600, t, 0.15);
+  lowpassNode.Q.value = 2.0;
+  gainNode.gain.setTargetAtTime(1.0, t, 0.1);
+  dryGain.gain.setTargetAtTime(0.4, t, 0.15);
+  wetGain.gain.setTargetAtTime(0.8, t, 0.15);
+}
+
+function setCharLoadingEffect() {
+  if (!charAudioReady) return;
+  const t = audioCtx.currentTime;
+  charLowpassNode.frequency.setTargetAtTime(600, t, 0.15);
+  charLowpassNode.Q.value = 2.0;
+  charDryGain.gain.setTargetAtTime(0.4, t, 0.15);
+  charWetGain.gain.setTargetAtTime(0.8, t, 0.15);
+}
+
+// ── Normal effect ──
+function setNormalEffect(dur = 2.5) {
+  if (!lobbyAudioReady) return;
+  const t  = audioCtx.currentTime;
+  const tc = dur / 3;
+  lowpassNode.frequency.setTargetAtTime(18000, t, tc);
+  dryGain.gain.setTargetAtTime(1.0, t, tc);
+  wetGain.gain.setTargetAtTime(0.0, t, tc);
+  gainNode.gain.setTargetAtTime(1.0, t, 0.1);
+}
+
+function setCharNormalEffect(dur = 2.5) {
+  if (!charAudioReady) return;
+  const t  = audioCtx.currentTime;
+  const tc = dur / 3;
+  charLowpassNode.frequency.setTargetAtTime(18000, t, tc);
+  charDryGain.gain.setTargetAtTime(1.0, t, tc);
+  charWetGain.gain.setTargetAtTime(0.0, t, tc);
+}
+
+// ── Crossfade lobby → char ──
+function crossfadeToChar(dur = 1.5) {
+  buildCharAudioGraph();
+  if (charGainNode) charGainNode.gain.value = 0;
+  charMusic.currentTime = 0;
+  charMusic.play().catch(e => console.warn('crossfadeToChar play failed:', e));
+  setCharLoadingEffect();
+
+  const steps = 40;
+  const dt    = (dur * 1000) / steps;
+  let step = 0;
+  const fade = setInterval(() => {
+    step++;
+    const t = step / steps;
+    if (gainNode)     gainNode.gain.value     = Math.max(0, 1 - t);
+    if (charGainNode) charGainNode.gain.value = Math.min(1, t);
+    if (step >= steps) {
+      clearInterval(fade);
+      if (lobbyMusic) { lobbyMusic.pause(); lobbyMusic.currentTime = 0; }
+      // JANGAN reset gainNode ke 1 — biarkan 0 agar lobby tidak bunyi lagi
+    }
+  }, dt);
+}
+
+// ── Crossfade char → lobby (dengan cave) ──
+function crossfadeToLobby(dur = 1.5) {
+  if (!lobbyAudioReady) return;
+  const now = audioCtx.currentTime;
+  lowpassNode.frequency.cancelScheduledValues(now);
+  dryGain.gain.cancelScheduledValues(now);
+  wetGain.gain.cancelScheduledValues(now);
+  gainNode.gain.cancelScheduledValues(now);
+  lowpassNode.frequency.setValueAtTime(600, now);
+  lowpassNode.Q.value = 2.0;
+  dryGain.gain.setValueAtTime(0.4, now);
+  wetGain.gain.setValueAtTime(0.8, now);
+  gainNode.gain.setValueAtTime(0, now);
+  if (audioCtx.state === 'suspended') audioCtx.resume();
+  if (lobbyMusic) lobbyMusic.play().catch(() => {});
+
+  const steps = 40;
+  const dt    = (dur * 1000) / steps;
+  let step = 0;
+  const fade = setInterval(() => {
+    step++;
+    const t = step / steps;
+    if (charGainNode) charGainNode.gain.value = Math.max(0, 1 - t);
+    gainNode.gain.value = Math.min(1, t);
+    if (step >= steps) {
+      clearInterval(fade);
+      charMusic.pause();
+      if (charGainNode) charGainNode.gain.value = 0;
+    }
+  }, dt);
+}
+
+// ── Reset char graph ke normal ──
+function resetCharAudioToNormal() {
+  if (!charAudioReady) return;
+  const now = audioCtx.currentTime;
+  charLowpassNode.frequency.cancelScheduledValues(now);
+  charLowpassNode.frequency.setValueAtTime(18000, now);
+  charDryGain.gain.cancelScheduledValues(now);
+  charDryGain.gain.setValueAtTime(1.0, now);
+  charWetGain.gain.cancelScheduledValues(now);
+  charWetGain.gain.setValueAtTime(0.0, now);
+}
+
+// ── Expose ke musicSystem ──
+window.musicSystem = {
+  startLobby() {
+    buildAudioGraph();
+    if (lobbyMusic) {
+      lobbyMusic.currentTime = 0;
+      lobbyMusic.play().then(() => {
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        setLoadingEffect();
+      }).catch(() => {});
+    }
+  },
+  setLoadingEffect,
+  setNormalEffect,
+  setCharNormalEffect,
+  crossfadeToChar,
+  crossfadeToLobby,
+  resetCharAudioToNormal,
+  buildCharGraph: buildCharAudioGraph,
+  setCharLoadingEffect,
+};
+
+// ── Unlock & start ──
+window._userGestured = false;
+window._startLobbyMusic = function() {
+  if (window._userGestured) {
+    window.musicSystem.startLobby();
+  } else {
+    window._pendingMusic = () => window.musicSystem.startLobby();
+  }
+};
+function unlockAudio() {
+  if (window._userGestured) return;
+  window._userGestured = true;
+  if (window._pendingMusic) { window._pendingMusic(); window._pendingMusic = null; }
+}
+['touchstart','touchend','click'].forEach(ev => {
+  document.addEventListener(ev, unlockAudio, { passive: true });
+});
+
+
+
+
+
+(function() {
+  function runIntro() {
+    const intro     = document.getElementById('intro-screen');
+    const txt       = document.getElementById('intro-loading-text');
+    const spin      = document.getElementById('intro-spinner');
+    const menu      = document.getElementById('screen-menu');
+    const bottomBar = document.getElementById('menu-content');
+    const tapScreen = document.getElementById('tap-screen');
+    if (!intro) return;
+
+    // Intro hidden sampai tap
+    intro.style.display = 'none';
+
+    // Menu dan bottomBar siap di posisi awal
+    if (menu) { menu.style.transform = 'translateY(100vh)'; menu.style.transition = 'none'; }
+    if (bottomBar) { bottomBar.style.transform = 'translateY(-24px)'; bottomBar.style.transition = 'none'; }
+
+    // Tap handler
+    const onTap = () => {
+      window._userGestured = true;
+      if (tapScreen) {
+        tapScreen.classList.add('hide');
+        setTimeout(() => { tapScreen.style.display = 'none'; }, 400);
+      }
+      // Tampilkan intro dan mulai sequence
+      intro.style.display = 'flex';
+      startSequence();
+    };
+
+    if (tapScreen) {
+      tapScreen.addEventListener('click',      onTap, { once: true });
+      tapScreen.addEventListener('touchstart', onTap, { once: true, passive: true });
+    }
+
+    function startSequence() {
+    setTimeout(() => {
+      try { if (txt) txt.textContent = 'Completed'; } catch(e){}
+      try { if (spin) spin.style.display = 'none'; } catch(e){}
+    }, 2000);
+
+    // 2.5s → slide
+    setTimeout(() => {
+      try {
+        const ease = 'transform 1.2s cubic-bezier(0.76,0,0.24,1)';
+        intro.style.transition = ease;
+        intro.style.transform  = 'translateY(-100vh)';
+        if (menu) { menu.style.transition = ease; menu.style.transform = 'translateY(0)'; }
+        if (bottomBar) { bottomBar.style.transition = 'transform 1s cubic-bezier(0.34,1.3,0.64,1)'; bottomBar.style.transform = 'translateY(0)'; }
+      } catch(e){}
+
+      // Door sound → then lobby music (fade in normal)
+      let musicStarted = false;
+      const startMusic = () => {
+        if (musicStarted) return;
+        musicStarted = true;
+        window._userGestured = true;
+        if (window._pendingMusic) { window._pendingMusic(); window._pendingMusic = null; }
+        else if (window._startLobbyMusic) window._startLobbyMusic();
+        setTimeout(() => {
+          if (window.musicSystem) window.musicSystem.setNormalEffect(2.5);
+        }, 300);
+      };
+      try {
+        const door = new Audio('assets/soundfx/dooropen.mp3');
+        door.volume = 1.0;
+        door.addEventListener('ended', startMusic);
+        door.play().catch(() => startMusic()); // hanya fallback jika gagal play
+      } catch(e) { startMusic(); }
+      setTimeout(startMusic, 4000); // fallback maksimal 4s
+
+      // Cleanup
+      setTimeout(() => {
+        try {
+          intro.style.display = 'none';
+          if (menu) { menu.style.transition = ''; menu.style.transform = ''; }
+          if (bottomBar) { bottomBar.style.transition = ''; }
+          setTimeout(() => { try { if (window._showBannerAds) window._showBannerAds(); } catch(e){} }, 300);
+        } catch(e){}
+      }, 1300);
+    }, 2500);
+    } // end startSequence
+  } // end runIntro
+
+  // Jalankan setelah DOM siap
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runIntro);
+  } else {
+    runIntro();
+  }
+})();
+
+</script>
+
+<!-- ── SPLASH SCREEN ── -->
+<div id="splash-screen">
+  <img id="splash-img" src="assets/background/splashloading.png" alt="Loading">
+</div>
+
+<!-- ── CHARACTER SELECT SCREEN ── -->
+<div id="charselect-screen">
+  <img id="charselect-bg" src="assets/background/characterbg.png" alt="bg">
+
+  <!-- Timer -->
+  <div id="cs-timer-wrap">
+    <img id="cs-timer-bg" src="assets/miniicon/timer.png" alt="timer">
+    <span id="cs-timer-num">40</span>
+  </div>
+
+  <!-- Characters on stage -->
+  <div id="cs-stage">
+    <!-- Bot 1 -->
+    <div class="cs-char">
+      <div class="cs-char-badge">✓</div>
+      <div class="cs-char-avatar">🦊</div>
+    </div>
+    <!-- Bot 2 -->
+    <div class="cs-char">
+      <div class="cs-char-badge">✓</div>
+      <div class="cs-char-avatar">🐗</div>
+    </div>
+    <!-- Bot 3 (Inhumane) -->
+    <div class="cs-char">
+      <div class="cs-char-name">Inhumane</div>
+      <div class="cs-char-avatar">🐻</div>
+    </div>
+    <!-- YOU -->
+    <div class="cs-char you">
+      <div class="cs-char-you">YOU</div>
+      <div class="cs-char-avatar">🐰</div>
+    </div>
+    <!-- Bot 4 -->
+    <div class="cs-char">
+      <div class="cs-char-badge">✓</div>
+      <div class="cs-char-avatar">🐊</div>
+    </div>
+    <!-- Bot 5 -->
+    <div class="cs-char">
+      <div class="cs-char-avatar">🦆</div>
+    </div>
+    <!-- Bot 6 -->
+    <div class="cs-char">
+      <div class="cs-char-badge">✓</div>
+      <div class="cs-char-avatar">🐱</div>
+    </div>
+    <!-- Bot 7 -->
+    <div class="cs-char">
+      <div class="cs-char-badge">✓</div>
+      <div class="cs-char-avatar">🐼</div>
+    </div>
+  </div>
+
+  <!-- Avatar picker -->
+  <div id="cs-picker">
+    <div class="cs-pick-item" data-char="🐕">🐕</div>
+    <div class="cs-pick-item" data-char="🐊">🐊</div>
+    <div class="cs-pick-item" data-char="🐹">🐹</div>
+    <div class="cs-pick-item" data-char="🦦">🦦</div>
+    <div class="cs-pick-item" data-char="🦕">🦕</div>
+    <div class="cs-pick-item" data-char="🐣">🐣</div>
+    <div class="cs-pick-item selected" data-char="🐰">🐰</div>
+    <div class="cs-pick-item" data-char="🐷">🐷</div>
+    <div class="cs-pick-item" data-char="🦆">🦆</div>
+    <div class="cs-pick-item" data-char="🐦">🐦</div>
+    <div class="cs-pick-item" data-char="🐺">🐺</div>
+    <div class="cs-pick-item" data-char="🐻">🐻</div>
+    <div class="cs-pick-item" data-char="🐴">🐴</div>
+  </div>
+
+  <!-- Ready button + Bottom bar -->
+  <div id="cs-bottom">
+    <div class="cs-bottom-hint">🎮 Select Character</div>
+    <div id="cs-ready-btn">
+      <img src="assets/miniicon/ready.png" alt="Ready" id="cs-ready-img">
+    </div>
+    <div class="cs-bottom-hint">🎮 Change Outfit</div>
+  </div>
+</div>
+
+
+</body>
+</html>
